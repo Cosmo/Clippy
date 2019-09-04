@@ -1,6 +1,6 @@
 # Clippy
 
-Yes, Clippy from Microsoft is back — on macOS!
+Yes, Clippy from Microsoft Office is back — on macOS!
 
 Clippy can be moved around (drag with mouse) and be animated (right-click).
 
