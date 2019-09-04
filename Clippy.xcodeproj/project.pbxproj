@@ -10,8 +10,6 @@
 		453D7F7F231F189600995AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F7E231F189600995AB3 /* AppDelegate.swift */; };
 		453D7F87231F189600995AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F85231F189600995AB3 /* LaunchScreen.storyboard */; };
 		453D7F90231F189600995AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F8F231F189600995AB3 /* AppDelegate.swift */; };
-		453D7F9D231F189600995AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F76231F189600995AB3 /* Assets.xcassets */; };
-		453D7F9E231F189600995AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F76231F189600995AB3 /* Assets.xcassets */; };
 		453D7FA8231F20AE00995AB3 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FA7231F20AE00995AB3 /* Application.swift */; };
 		453D7FB3231F908400995AB3 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAA231F908400995AB3 /* Agent.swift */; };
 		453D7FB4231F908400995AB3 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAA231F908400995AB3 /* Agent.swift */; };
@@ -27,6 +25,7 @@
 		453D7FC0231F908400995AB3 /* ClippyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FB2231F908400995AB3 /* ClippyAction.swift */; };
 		456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456FDA55231FA3E900170E12 /* GhostSKView.swift */; };
 		456FDA57231FB8B100170E12 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FC1231F90DA00995AB3 /* RootViewController.swift */; };
+		456FDA58231FBC0D00170E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F76231F189600995AB3 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -250,7 +249,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				453D7F87231F189600995AB3 /* LaunchScreen.storyboard in Resources */,
-				453D7F9D231F189600995AB3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				453D7F9E231F189600995AB3 /* Assets.xcassets in Resources */,
+				456FDA58231FBC0D00170E12 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +420,7 @@
 		453D7FA2231F189600995AB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = iOSAppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3ZG8RPGHF;
 				INFOPLIST_FILE = "Clippy iOS/Info.plist";
@@ -442,7 +440,7 @@
 		453D7FA3231F189600995AB3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = iOSAppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3ZG8RPGHF;
 				INFOPLIST_FILE = "Clippy iOS/Info.plist";
@@ -463,7 +461,7 @@
 		453D7FA5231F189600995AB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = macOSAppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Z3ZG8RPGHF;
@@ -484,7 +482,7 @@
 		453D7FA6231F189600995AB3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = macOSAppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Z3ZG8RPGHF;
