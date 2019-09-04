@@ -8,38 +8,45 @@
 
 /* Begin PBXBuildFile section */
 		453D7F7F231F189600995AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F7E231F189600995AB3 /* AppDelegate.swift */; };
-		453D7F81231F189600995AB3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F80231F189600995AB3 /* GameViewController.swift */; };
-		453D7F84231F189600995AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F82231F189600995AB3 /* Main.storyboard */; };
 		453D7F87231F189600995AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F85231F189600995AB3 /* LaunchScreen.storyboard */; };
 		453D7F90231F189600995AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F8F231F189600995AB3 /* AppDelegate.swift */; };
-		453D7F92231F189600995AB3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F91231F189600995AB3 /* GameViewController.swift */; };
-		453D7F95231F189600995AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F93231F189600995AB3 /* Main.storyboard */; };
-		453D7F97231F189600995AB3 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F73231F189400995AB3 /* Actions.sks */; };
-		453D7F98231F189600995AB3 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F73231F189400995AB3 /* Actions.sks */; };
-		453D7F99231F189600995AB3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F74231F189400995AB3 /* GameScene.sks */; };
-		453D7F9A231F189600995AB3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F74231F189400995AB3 /* GameScene.sks */; };
-		453D7F9B231F189600995AB3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F75231F189400995AB3 /* GameScene.swift */; };
-		453D7F9C231F189600995AB3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F75231F189400995AB3 /* GameScene.swift */; };
 		453D7F9D231F189600995AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F76231F189600995AB3 /* Assets.xcassets */; };
 		453D7F9E231F189600995AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F76231F189600995AB3 /* Assets.xcassets */; };
+		453D7FA8231F20AE00995AB3 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FA7231F20AE00995AB3 /* Application.swift */; };
+		453D7FB3231F908400995AB3 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAA231F908400995AB3 /* Agent.swift */; };
+		453D7FB4231F908400995AB3 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAA231F908400995AB3 /* Agent.swift */; };
+		453D7FB5231F908400995AB3 /* AgentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAB231F908400995AB3 /* AgentError.swift */; };
+		453D7FB6231F908400995AB3 /* AgentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAB231F908400995AB3 /* AgentError.swift */; };
+		453D7FB7231F908400995AB3 /* AgentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAC231F908400995AB3 /* AgentFrame.swift */; };
+		453D7FB8231F908400995AB3 /* AgentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAC231F908400995AB3 /* AgentFrame.swift */; };
+		453D7FB9231F908400995AB3 /* AgentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAD231F908400995AB3 /* AgentExtensions.swift */; };
+		453D7FBA231F908400995AB3 /* AgentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAD231F908400995AB3 /* AgentExtensions.swift */; };
+		453D7FBD231F908400995AB3 /* Clippy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FB1231F908400995AB3 /* Clippy.swift */; };
+		453D7FBE231F908400995AB3 /* Clippy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FB1231F908400995AB3 /* Clippy.swift */; };
+		453D7FBF231F908400995AB3 /* ClippyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FB2231F908400995AB3 /* ClippyAction.swift */; };
+		453D7FC0231F908400995AB3 /* ClippyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FB2231F908400995AB3 /* ClippyAction.swift */; };
+		456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456FDA55231FA3E900170E12 /* GhostSKView.swift */; };
+		456FDA57231FB8B100170E12 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FC1231F90DA00995AB3 /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		453D7F73231F189400995AB3 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		453D7F74231F189400995AB3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		453D7F75231F189400995AB3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		453D7F76231F189600995AB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		453D7F7B231F189600995AB3 /* Clippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		453D7F7E231F189600995AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		453D7F80231F189600995AB3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		453D7F83231F189600995AB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		453D7F86231F189600995AB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		453D7F88231F189600995AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		453D7F8D231F189600995AB3 /* Clippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		453D7F8F231F189600995AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		453D7F91231F189600995AB3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		453D7F94231F189600995AB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		453D7F96231F189600995AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		453D7FA7231F20AE00995AB3 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		453D7FAA231F908400995AB3 /* Agent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		453D7FAB231F908400995AB3 /* AgentError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentError.swift; sourceTree = "<group>"; };
+		453D7FAC231F908400995AB3 /* AgentFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentFrame.swift; sourceTree = "<group>"; };
+		453D7FAD231F908400995AB3 /* AgentExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentExtensions.swift; sourceTree = "<group>"; };
+		453D7FB1231F908400995AB3 /* Clippy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clippy.swift; sourceTree = "<group>"; };
+		453D7FB2231F908400995AB3 /* ClippyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClippyAction.swift; sourceTree = "<group>"; };
+		453D7FC1231F90DA00995AB3 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		456FDA55231FA3E900170E12 /* GhostSKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostSKView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +80,9 @@
 		453D7F72231F189400995AB3 /* Clippy Shared */ = {
 			isa = PBXGroup;
 			children = (
-				453D7F73231F189400995AB3 /* Actions.sks */,
-				453D7F74231F189400995AB3 /* GameScene.sks */,
-				453D7F75231F189400995AB3 /* GameScene.swift */,
 				453D7F76231F189600995AB3 /* Assets.xcassets */,
+				453D7FA9231F908400995AB3 /* Agent */,
+				453D7FAE231F908400995AB3 /* Agents */,
 			);
 			path = "Clippy Shared";
 			sourceTree = "<group>";
@@ -94,10 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				453D7F7E231F189600995AB3 /* AppDelegate.swift */,
-				453D7F80231F189600995AB3 /* GameViewController.swift */,
-				453D7F82231F189600995AB3 /* Main.storyboard */,
-				453D7F85231F189600995AB3 /* LaunchScreen.storyboard */,
-				453D7F88231F189600995AB3 /* Info.plist */,
+				453D7FC7231F911D00995AB3 /* Supporting Files */,
 			);
 			path = "Clippy iOS";
 			sourceTree = "<group>";
@@ -106,11 +109,65 @@
 			isa = PBXGroup;
 			children = (
 				453D7F8F231F189600995AB3 /* AppDelegate.swift */,
-				453D7F91231F189600995AB3 /* GameViewController.swift */,
-				453D7F93231F189600995AB3 /* Main.storyboard */,
-				453D7F96231F189600995AB3 /* Info.plist */,
+				453D7FA7231F20AE00995AB3 /* Application.swift */,
+				453D7FC1231F90DA00995AB3 /* RootViewController.swift */,
+				453D7FCB231F914800995AB3 /* Views */,
+				453D7FC8231F912800995AB3 /* Supporting Files */,
 			);
 			path = "Clippy macOS";
+			sourceTree = "<group>";
+		};
+		453D7FA9231F908400995AB3 /* Agent */ = {
+			isa = PBXGroup;
+			children = (
+				453D7FAA231F908400995AB3 /* Agent.swift */,
+				453D7FAB231F908400995AB3 /* AgentError.swift */,
+				453D7FAC231F908400995AB3 /* AgentFrame.swift */,
+				453D7FAD231F908400995AB3 /* AgentExtensions.swift */,
+			);
+			path = Agent;
+			sourceTree = "<group>";
+		};
+		453D7FAE231F908400995AB3 /* Agents */ = {
+			isa = PBXGroup;
+			children = (
+				453D7FAF231F908400995AB3 /* Clippy */,
+			);
+			path = Agents;
+			sourceTree = "<group>";
+		};
+		453D7FAF231F908400995AB3 /* Clippy */ = {
+			isa = PBXGroup;
+			children = (
+				453D7FB1231F908400995AB3 /* Clippy.swift */,
+				453D7FB2231F908400995AB3 /* ClippyAction.swift */,
+			);
+			path = Clippy;
+			sourceTree = "<group>";
+		};
+		453D7FC7231F911D00995AB3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				453D7F85231F189600995AB3 /* LaunchScreen.storyboard */,
+				453D7F88231F189600995AB3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		453D7FC8231F912800995AB3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				453D7F96231F189600995AB3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		453D7FCB231F914800995AB3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				456FDA55231FA3E900170E12 /* GhostSKView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,9 +249,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				453D7F99231F189600995AB3 /* GameScene.sks in Resources */,
-				453D7F84231F189600995AB3 /* Main.storyboard in Resources */,
-				453D7F97231F189600995AB3 /* Actions.sks in Resources */,
 				453D7F87231F189600995AB3 /* LaunchScreen.storyboard in Resources */,
 				453D7F9D231F189600995AB3 /* Assets.xcassets in Resources */,
 			);
@@ -204,10 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				453D7F95231F189600995AB3 /* Main.storyboard in Resources */,
-				453D7F9A231F189600995AB3 /* GameScene.sks in Resources */,
 				453D7F9E231F189600995AB3 /* Assets.xcassets in Resources */,
-				453D7F98231F189600995AB3 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,9 +269,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				453D7F9B231F189600995AB3 /* GameScene.swift in Sources */,
-				453D7F81231F189600995AB3 /* GameViewController.swift in Sources */,
+				453D7FBF231F908400995AB3 /* ClippyAction.swift in Sources */,
 				453D7F7F231F189600995AB3 /* AppDelegate.swift in Sources */,
+				453D7FB7231F908400995AB3 /* AgentFrame.swift in Sources */,
+				453D7FBD231F908400995AB3 /* Clippy.swift in Sources */,
+				453D7FB9231F908400995AB3 /* AgentExtensions.swift in Sources */,
+				453D7FB3231F908400995AB3 /* Agent.swift in Sources */,
+				453D7FB5231F908400995AB3 /* AgentError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,8 +283,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				453D7F9C231F189600995AB3 /* GameScene.swift in Sources */,
-				453D7F92231F189600995AB3 /* GameViewController.swift in Sources */,
+				456FDA57231FB8B100170E12 /* RootViewController.swift in Sources */,
+				453D7FBE231F908400995AB3 /* Clippy.swift in Sources */,
+				453D7FB6231F908400995AB3 /* AgentError.swift in Sources */,
+				453D7FBA231F908400995AB3 /* AgentExtensions.swift in Sources */,
+				453D7FB4231F908400995AB3 /* Agent.swift in Sources */,
+				453D7FC0231F908400995AB3 /* ClippyAction.swift in Sources */,
+				453D7FA8231F20AE00995AB3 /* Application.swift in Sources */,
+				453D7FB8231F908400995AB3 /* AgentFrame.swift in Sources */,
+				456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */,
 				453D7F90231F189600995AB3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,28 +299,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		453D7F82231F189600995AB3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				453D7F83231F189600995AB3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		453D7F85231F189600995AB3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				453D7F86231F189600995AB3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		453D7F93231F189600995AB3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				453D7F94231F189600995AB3 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
