@@ -27,6 +27,15 @@ git clone https://github.com/Cosmo/Clippy.git
 * [ ] Sound
 * [ ] Support for other Agents
 
+## Attributions
+
+Inspiration was taken from:
+
+* https://github.com/tanathos/ClippyVS (C#)
+* https://github.com/smore-inc/clippy.js (JavaScript)
+
+Graphics were created by Microsoft.
+
 ## Contact
 
 * Devran "Cosmo" Uenal
