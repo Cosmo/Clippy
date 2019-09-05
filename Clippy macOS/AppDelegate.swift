@@ -12,6 +12,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow?
     let debug = false
+    let applicationName = "Clippy"
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -45,11 +46,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let applicationMenuItem = mainMenu.addItem(withTitle: "Application", action: nil, keyEquivalent: "")
         let applicationSubMenu = NSMenu(title:"Application")
         
-        applicationSubMenu.addItem(NSMenuItem(title: "hello", action: nil, keyEquivalent: ""))
-        
-        let title = NSLocalizedString("Hide", comment: "Hide menu item") + " " + "Clippy"
-        let hideMenuItem = applicationSubMenu.addItem(withTitle: title, action: #selector(NSApplication.hide(_:)), keyEquivalent:"h")
-        hideMenuItem.target = NSApp
+        applicationSubMenu.addItem(withTitle: "Quit \(applicationName)",
+            action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         
         mainMenu.setSubmenu(applicationSubMenu, for: applicationMenuItem)
         
