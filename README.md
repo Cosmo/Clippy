@@ -8,6 +8,11 @@ The `SpriteKit`-Framework is used to animate through Clippy's sprite map.
 
 ## Usage
 
+* [Download Clippy for macOS](https://github.com/Cosmo/Clippy/releases/download/1.0.0/Clippy.zip).
+
+
+## Build
+
 ```sh
 git clone https://github.com/Cosmo/Clippy.git
 ```
