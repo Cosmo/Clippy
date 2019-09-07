@@ -1,5 +1,5 @@
 //
-//  RootViewController.swift
+//  AgentViewController.swift
 //  Clippy
 //
 //  Created by Devran on 04.09.19.
@@ -10,14 +10,10 @@ import AppKit
 import SpriteKit
 import AVKit
 
-class RootViewController: NSViewController {
-    var agent: AgentCharacterDescription {
-        didSet {
-            view.superview?.window?.contentAspectRatio = CGSize(width: agent.character.width, height: agent.character.height)
-        }
-    }
+class AgentViewController: NSViewController {
+    var agent: AgentCharacterDescription?
     
-    var skView: SKView = {
+    lazy var skView: SKView = {
         let skView = GhostSKView()
         skView.wantsLayer = true
         skView.allowsTransparency = true
@@ -27,15 +23,14 @@ class RootViewController: NSViewController {
     
     lazy var agentSprite: SKSpriteNode = {
         let sprite = SKSpriteNode()
-        sprite.size = agent.character.size
         sprite.position = CGPoint.zero
         sprite.anchorPoint = CGPoint.zero
         return sprite
     }()
     
     lazy var scene: SKScene = {
-        let scene = SKScene(size: agent.character.size)
-        scene.scaleMode = .aspectFit
+        let scene = SKScene(size: view.frame.size)
+        scene.scaleMode = .resizeFill
         scene.backgroundColor = .clear
         scene.addChild(agentSprite)
         return scene
@@ -46,7 +41,6 @@ class RootViewController: NSViewController {
     }()
     
     init() {
-        self.agent = AgentCharacterDescription.loadAgent(resourceName: "links")!
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -56,32 +50,34 @@ class RootViewController: NSViewController {
     
     override func loadView() {
         let origin = CGPoint.zero
-        let size = CGSize(width: agent.character.width * 2, height: agent.character.height * 2)
-        view = NSView(frame: NSRect(origin: origin, size: size))
+        let size = CGSize(width: 400, height: 400)
+        view = NSView(frame: CGRect(origin: origin, size: size))
         view.wantsLayer = true
         view.layer?.backgroundColor = .clear
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(skView)
+        skView.presentScene(scene)
+        setupConstraints()
     }
     
     override func viewDidAppear() {
         super.viewDidAppear()
         
-        skView.frame = view.bounds
-        skView.presentScene(scene)
-        view.addSubview(skView)
-        
-        startAgent()
-        
         view.window?.makeFirstResponder(self)
+        
+        guard let name = AgentCharacterDescription.randomAgentName() else { return }
+        startAssistant(name: name)
     }
     
-    override func viewDidLayout() {
-        super.viewDidLayout()
-        
-        skView.frame = view.bounds
+    func setupConstraints() {
+        skView.translatesAutoresizingMaskIntoConstraints = false
+        skView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        skView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        view.rightAnchor.constraint(equalTo: skView.rightAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: skView.bottomAnchor).isActive = true
     }
     
     func createContextualMenu() -> NSMenu {
@@ -90,7 +86,7 @@ class RootViewController: NSViewController {
             NSMenuItem(title: "Hide", action: nil, keyEquivalent: ""),
             NSMenuItem.separator(),
             NSMenuItem(title: "Options …", action: nil, keyEquivalent: ""),
-            NSMenuItem(title: "Choose Assistant …", action: #selector(swapAssistant), keyEquivalent: ""),
+            NSMenuItem(title: "Choose Assistant …", action: #selector(chooseAssistantAction), keyEquivalent: ""),
             NSMenuItem(title: "Animate!", action: #selector(animateAction), keyEquivalent: "")
         ]
         
@@ -104,21 +100,31 @@ class RootViewController: NSViewController {
         animate(onNode: agentSprite)
     }
     
-    @objc func swapAssistant() {
-        guard let assistant = AgentCharacterDescription.availableAgents().randomElement() else { return }
-        guard let agent = AgentCharacterDescription.loadAgent(resourceName: assistant) else { return }
-        self.agent = agent
-        startAgent()
+    @objc func chooseAssistantAction() {
+        guard let name = AgentCharacterDescription.randomAgentName() else { return }
+        startAssistant(name: name)
     }
     
-    func startAgent() {
+    func startAssistant(name: String) {
+        guard let agent = AgentCharacterDescription(resourceName: name) else { return }
+        self.agent = agent
+        guard let window = view.superview?.window else { return }
+        window.contentAspectRatio = agent.character.size
+        let size = CGSize(width: agent.character.height * 2, height: agent.character.height * 2)
+        window.setContentSize(size)
+        var frame = window.frame
+        frame.size = size
+        window.setFrame(frame, display: true, animate: true)
+        // skView.setFrameSize(size)
+        view.setFrameSize(size)
+        agentSprite.size = size
         agentSprite.texture = try? agent.textureAtIndex(index: 0)
     }
 }
 
-extension RootViewController {
+extension AgentViewController {
     func audioActionForFrame(frame: AgentFrame) -> SKAction? {
-        guard let soundNumber = frame.soundNumber else { return nil }
+        guard let agent = agent, let soundNumber = frame.soundNumber else { return nil }
         let soundURL = agent.basePath.appendingPathComponent("sounds").appendingPathComponent("\(agent.resourceName)_\(soundNumber).mp3")
         let action = SKAction.run {
             let playerItem = AVPlayerItem(url: soundURL)
@@ -130,11 +136,13 @@ extension RootViewController {
     }
     
     func animate(onNode node: SKNode) {
+        guard let agent = agent else { return }
         let animation = agent.animations.randomElement()!
         play(animation: animation, onNode: node)
     }
     
     func play(animation: AgentAnimation, onNode node: SKNode) {
+        guard let agent = agent else { return }
         print(animation.name)
         
         var actions: [SKAction] = []
@@ -154,7 +162,7 @@ extension RootViewController {
     }
 }
 
-extension RootViewController {
+extension AgentViewController {
     override var acceptsFirstResponder: Bool {
         return true
     }
@@ -164,9 +172,16 @@ extension RootViewController {
     }
     
     override func keyDown(with event: NSEvent) {
+        guard let agent = agent else {
+            super.keyDown(with: event)
+            return
+        }
         switch Int(event.keyCode) {
         case 49: // Spacebar
             animate(onNode: agentSprite)
+        case 36: // Spacebar
+            guard let name = AgentCharacterDescription.randomAgentName() else { return }
+            startAssistant(name: name)
         case 124: // Right Key
             guard let animation = agent.findAnimation("LookLeft") else { break }
             play(animation: animation, onNode: agentSprite)

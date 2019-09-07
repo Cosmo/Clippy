@@ -12,7 +12,7 @@
 		453D7F90231F189600995AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F8F231F189600995AB3 /* AppDelegate.swift */; };
 		453D7FA8231F20AE00995AB3 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FA7231F20AE00995AB3 /* Application.swift */; };
 		456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456FDA55231FA3E900170E12 /* GhostSKView.swift */; };
-		456FDA57231FB8B100170E12 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FC1231F90DA00995AB3 /* RootViewController.swift */; };
+		456FDA57231FB8B100170E12 /* AgentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FC1231F90DA00995AB3 /* AgentViewController.swift */; };
 		456FDA58231FBC0D00170E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F76231F189600995AB3 /* Assets.xcassets */; };
 		45A72A692322396B007DE9DA /* AgentCharacterDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72A6723223968007DE9DA /* AgentCharacterDescription.swift */; };
 		45A72B5A23235FCB007DE9DA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B5923235FCB007DE9DA /* StringExtensions.swift */; };
@@ -33,7 +33,8 @@
 		45A72B70232366C9007DE9DA /* AgentImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6E232366C9007DE9DA /* AgentImage.swift */; };
 		45A72B7223237B29007DE9DA /* AgentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B7123237B29007DE9DA /* AgentState.swift */; };
 		45A72B7323237B29007DE9DA /* AgentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B7123237B29007DE9DA /* AgentState.swift */; };
-		45E3C4682323E088003BC6B7 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E3C4672323E088003BC6B7 /* Window.swift */; };
+		45E3C4682323E088003BC6B7 /* KeyableWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E3C4672323E088003BC6B7 /* KeyableWindow.swift */; };
+		45FF387F23242BA500F724B7 /* AgentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF387E23242BA500F724B7 /* AgentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +47,7 @@
 		453D7F8F231F189600995AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		453D7F96231F189600995AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		453D7FA7231F20AE00995AB3 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
-		453D7FC1231F90DA00995AB3 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		453D7FC1231F90DA00995AB3 /* AgentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentViewController.swift; sourceTree = "<group>"; };
 		456FDA55231FA3E900170E12 /* GhostSKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostSKView.swift; sourceTree = "<group>"; };
 		45A72A6723223968007DE9DA /* AgentCharacterDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCharacterDescription.swift; sourceTree = "<group>"; };
 		45A72A6A232257DB007DE9DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -59,7 +60,8 @@
 		45A72B6B23236076007DE9DA /* AgentCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCharacter.swift; sourceTree = "<group>"; };
 		45A72B6E232366C9007DE9DA /* AgentImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentImage.swift; sourceTree = "<group>"; };
 		45A72B7123237B29007DE9DA /* AgentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentState.swift; sourceTree = "<group>"; };
-		45E3C4672323E088003BC6B7 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		45E3C4672323E088003BC6B7 /* KeyableWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyableWindow.swift; sourceTree = "<group>"; };
+		45FF387E23242BA500F724B7 /* AgentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,10 +125,10 @@
 			children = (
 				453D7FA7231F20AE00995AB3 /* Application.swift */,
 				453D7F8F231F189600995AB3 /* AppDelegate.swift */,
-				453D7FC1231F90DA00995AB3 /* RootViewController.swift */,
-				453D7FCB231F914800995AB3 /* Views */,
+				45FF387E23242BA500F724B7 /* AgentView.swift */,
+				453D7FC1231F90DA00995AB3 /* AgentViewController.swift */,
+				453D7FCB231F914800995AB3 /* Sub-Classes */,
 				453D7FC8231F912800995AB3 /* Supporting Files */,
-				45E3C4672323E088003BC6B7 /* Window.swift */,
 			);
 			path = "Clippy macOS";
 			sourceTree = "<group>";
@@ -148,12 +150,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		453D7FCB231F914800995AB3 /* Views */ = {
+		453D7FCB231F914800995AB3 /* Sub-Classes */ = {
 			isa = PBXGroup;
 			children = (
+				45E3C4672323E088003BC6B7 /* KeyableWindow.swift */,
 				456FDA55231FA3E900170E12 /* GhostSKView.swift */,
 			);
-			path = Views;
+			path = "Sub-Classes";
 			sourceTree = "<group>";
 		};
 		45A72A6623223959007DE9DA /* AgentParser */ = {
@@ -291,7 +294,8 @@
 				45A72B6423236047007DE9DA /* AgentBranching.swift in Sources */,
 				45A72B5B23235FCB007DE9DA /* StringExtensions.swift in Sources */,
 				45A72B6123236038007DE9DA /* AgentBalloon.swift in Sources */,
-				456FDA57231FB8B100170E12 /* RootViewController.swift in Sources */,
+				456FDA57231FB8B100170E12 /* AgentViewController.swift in Sources */,
+				45FF387F23242BA500F724B7 /* AgentView.swift in Sources */,
 				45A72B70232366C9007DE9DA /* AgentImage.swift in Sources */,
 				45A72B6D23236076007DE9DA /* AgentCharacter.swift in Sources */,
 				45A72B6723236055007DE9DA /* AgentFrame.swift in Sources */,
@@ -299,7 +303,7 @@
 				453D7FA8231F20AE00995AB3 /* Application.swift in Sources */,
 				456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */,
 				45A72B5E2323602A007DE9DA /* AgentInfo.swift in Sources */,
-				45E3C4682323E088003BC6B7 /* Window.swift in Sources */,
+				45E3C4682323E088003BC6B7 /* KeyableWindow.swift in Sources */,
 				453D7F90231F189600995AB3 /* AppDelegate.swift in Sources */,
 				45A72A692322396B007DE9DA /* AgentCharacterDescription.swift in Sources */,
 				45A72B6A23236064007DE9DA /* AgentAnimation.swift in Sources */,

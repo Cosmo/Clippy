@@ -1,5 +1,5 @@
 //
-//  Window.swift
+//  AgentView.swift
 //  Clippy macOS
 //
 //  Created by Devran on 07.09.19.
@@ -8,8 +8,6 @@
 
 import Cocoa
 
-class Window: NSWindow {
-    override var canBecomeKey: Bool {
-        return true
-    }
+class AgentView: NSView {
+    
 }

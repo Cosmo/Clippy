@@ -1,6 +1,6 @@
 //
 //  AgentCharacterDescription.swift
-//  Clippy iOS
+//  Clippy
 //
 //  Created by Devran on 06.09.19.
 //  Copyright © 2019 Devran. All rights reserved.
@@ -57,6 +57,10 @@ struct AgentCharacterDescription {
         }
     }
     
+    init?(resourceName: String) {
+        self.init(baseURL: AgentCharacterDescription.agentsURL().appendingPathComponent(resourceName))
+    }
+    
     func findAnimation(_ name: String) -> AgentAnimation? {
         return animations.first(where: { $0.name == name })
     }
@@ -81,8 +85,8 @@ extension AgentCharacterDescription {
         return assistants
     }
     
-    static func loadAgent(resourceName: String) -> AgentCharacterDescription? {
-        AgentCharacterDescription(baseURL: agentsURL().appendingPathComponent(resourceName))
+    static func randomAgentName() -> String? {
+        availableAgents().randomElement()
     }
 }
 

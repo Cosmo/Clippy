@@ -12,8 +12,4 @@ class GhostSKView: SKView {
     open override func hitTest(_ point: NSPoint) -> NSView? {
         return superview
     }
-    
-    override var acceptsFirstResponder: Bool {
-        return false
-    }
 }

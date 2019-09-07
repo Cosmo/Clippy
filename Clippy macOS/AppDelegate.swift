@@ -16,17 +16,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        window = Window(contentViewController: RootViewController())
+        window = KeyableWindow(contentViewController: AgentViewController())
         window?.title = applicationName
-        window?.styleMask = debug ? [.titled, NSWindow.StyleMask.resizable] : []
+        window?.styleMask = debug ? [
+            NSWindow.StyleMask.titled,
+            NSWindow.StyleMask.resizable
+        ] : []
         window?.level = NSWindow.Level.floating
+        window?.titlebarAppearsTransparent = true
         window?.canHide = true
         window?.backingType = .buffered
         window?.isMovable = true
         window?.isMovableByWindowBackground = true
-        window?.backgroundColor = debug ? .green : .clear
+        window?.backgroundColor = .clear
         // window?.contentAspectRatio = CGSize(width: 1, height: 1)
-        // window?.minSize = CGSize(width: 400, height: 400)
         
         /// Fixes glitches
         window?.hasShadow = false
