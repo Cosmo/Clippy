@@ -11,32 +11,16 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow?
-    let debug = false
     let applicationName = "Clippy"
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        window = KeyableWindow(contentViewController: AgentViewController())
+        
+        window = AgentWindow(contentRect: CGRect.zero, styleMask: [], backing: .buffered, defer: true)
         window?.title = applicationName
-        window?.styleMask = debug ? [
-            NSWindow.StyleMask.titled,
-            NSWindow.StyleMask.resizable
-        ] : []
-        window?.level = NSWindow.Level.floating
-        window?.titlebarAppearsTransparent = true
-        window?.canHide = true
-        window?.backingType = .buffered
-        window?.isMovable = true
-        window?.isMovableByWindowBackground = true
-        window?.backgroundColor = .clear
-        // window?.contentAspectRatio = CGSize(width: 1, height: 1)
-        
-        /// Fixes glitches
-        window?.hasShadow = false
-        window?.isOpaque = false
-        
-        window?.delegate = self
+        window?.contentViewController = AgentViewController()
         window?.makeKeyAndOrderFront(self)
+        window?.center()
         setupMenu()
     }
     
@@ -60,15 +44,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         mainMenu.setSubmenu(applicationSubMenu, for: applicationMenuItem)
         
         NSApp.mainMenu = mainMenu
-    }
-}
-
-extension AppDelegate: NSWindowDelegate {
-    func windowDidResignKey(_ notification: Notification) {
-        window?.alphaValue = 0.5
-    }
-    
-    func windowDidBecomeKey(_ notification: Notification) {
-        window?.alphaValue = 1.0
     }
 }

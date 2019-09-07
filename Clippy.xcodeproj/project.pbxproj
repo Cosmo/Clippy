@@ -33,8 +33,9 @@
 		45A72B70232366C9007DE9DA /* AgentImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6E232366C9007DE9DA /* AgentImage.swift */; };
 		45A72B7223237B29007DE9DA /* AgentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B7123237B29007DE9DA /* AgentState.swift */; };
 		45A72B7323237B29007DE9DA /* AgentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B7123237B29007DE9DA /* AgentState.swift */; };
-		45E3C4682323E088003BC6B7 /* KeyableWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E3C4672323E088003BC6B7 /* KeyableWindow.swift */; };
 		45FF387F23242BA500F724B7 /* AgentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF387E23242BA500F724B7 /* AgentView.swift */; };
+		45FF38812324327800F724B7 /* AgentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF38802324327800F724B7 /* AgentController.swift */; };
+		45FF388323243E0400F724B7 /* AgentWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF388223243E0400F724B7 /* AgentWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +61,9 @@
 		45A72B6B23236076007DE9DA /* AgentCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCharacter.swift; sourceTree = "<group>"; };
 		45A72B6E232366C9007DE9DA /* AgentImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentImage.swift; sourceTree = "<group>"; };
 		45A72B7123237B29007DE9DA /* AgentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentState.swift; sourceTree = "<group>"; };
-		45E3C4672323E088003BC6B7 /* KeyableWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyableWindow.swift; sourceTree = "<group>"; };
 		45FF387E23242BA500F724B7 /* AgentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentView.swift; sourceTree = "<group>"; };
+		45FF38802324327800F724B7 /* AgentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentController.swift; sourceTree = "<group>"; };
+		45FF388223243E0400F724B7 /* AgentWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +128,9 @@
 				453D7FA7231F20AE00995AB3 /* Application.swift */,
 				453D7F8F231F189600995AB3 /* AppDelegate.swift */,
 				45FF387E23242BA500F724B7 /* AgentView.swift */,
+				45FF38802324327800F724B7 /* AgentController.swift */,
 				453D7FC1231F90DA00995AB3 /* AgentViewController.swift */,
+				45FF388223243E0400F724B7 /* AgentWindow.swift */,
 				453D7FCB231F914800995AB3 /* Sub-Classes */,
 				453D7FC8231F912800995AB3 /* Supporting Files */,
 			);
@@ -153,7 +157,6 @@
 		453D7FCB231F914800995AB3 /* Sub-Classes */ = {
 			isa = PBXGroup;
 			children = (
-				45E3C4672323E088003BC6B7 /* KeyableWindow.swift */,
 				456FDA55231FA3E900170E12 /* GhostSKView.swift */,
 			);
 			path = "Sub-Classes";
@@ -296,6 +299,7 @@
 				45A72B6123236038007DE9DA /* AgentBalloon.swift in Sources */,
 				456FDA57231FB8B100170E12 /* AgentViewController.swift in Sources */,
 				45FF387F23242BA500F724B7 /* AgentView.swift in Sources */,
+				45FF388323243E0400F724B7 /* AgentWindow.swift in Sources */,
 				45A72B70232366C9007DE9DA /* AgentImage.swift in Sources */,
 				45A72B6D23236076007DE9DA /* AgentCharacter.swift in Sources */,
 				45A72B6723236055007DE9DA /* AgentFrame.swift in Sources */,
@@ -303,7 +307,7 @@
 				453D7FA8231F20AE00995AB3 /* Application.swift in Sources */,
 				456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */,
 				45A72B5E2323602A007DE9DA /* AgentInfo.swift in Sources */,
-				45E3C4682323E088003BC6B7 /* KeyableWindow.swift in Sources */,
+				45FF38812324327800F724B7 /* AgentController.swift in Sources */,
 				453D7F90231F189600995AB3 /* AppDelegate.swift in Sources */,
 				45A72A692322396B007DE9DA /* AgentCharacterDescription.swift in Sources */,
 				45A72B6A23236064007DE9DA /* AgentAnimation.swift in Sources */,
