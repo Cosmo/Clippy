@@ -11,18 +11,6 @@
 		453D7F87231F189600995AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F85231F189600995AB3 /* LaunchScreen.storyboard */; };
 		453D7F90231F189600995AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F8F231F189600995AB3 /* AppDelegate.swift */; };
 		453D7FA8231F20AE00995AB3 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FA7231F20AE00995AB3 /* Application.swift */; };
-		453D7FB3231F908400995AB3 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAA231F908400995AB3 /* Agent.swift */; };
-		453D7FB4231F908400995AB3 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAA231F908400995AB3 /* Agent.swift */; };
-		453D7FB5231F908400995AB3 /* AgentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAB231F908400995AB3 /* AgentError.swift */; };
-		453D7FB6231F908400995AB3 /* AgentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAB231F908400995AB3 /* AgentError.swift */; };
-		453D7FB7231F908400995AB3 /* AgentFrameLegacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAC231F908400995AB3 /* AgentFrameLegacy.swift */; };
-		453D7FB8231F908400995AB3 /* AgentFrameLegacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAC231F908400995AB3 /* AgentFrameLegacy.swift */; };
-		453D7FB9231F908400995AB3 /* AgentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAD231F908400995AB3 /* AgentExtensions.swift */; };
-		453D7FBA231F908400995AB3 /* AgentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAD231F908400995AB3 /* AgentExtensions.swift */; };
-		453D7FBD231F908400995AB3 /* Clippy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FB1231F908400995AB3 /* Clippy.swift */; };
-		453D7FBE231F908400995AB3 /* Clippy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FB1231F908400995AB3 /* Clippy.swift */; };
-		453D7FBF231F908400995AB3 /* ClippyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FB2231F908400995AB3 /* ClippyAction.swift */; };
-		453D7FC0231F908400995AB3 /* ClippyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FB2231F908400995AB3 /* ClippyAction.swift */; };
 		456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456FDA55231FA3E900170E12 /* GhostSKView.swift */; };
 		456FDA57231FB8B100170E12 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FC1231F90DA00995AB3 /* RootViewController.swift */; };
 		456FDA58231FBC0D00170E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F76231F189600995AB3 /* Assets.xcassets */; };
@@ -45,8 +33,7 @@
 		45A72B70232366C9007DE9DA /* AgentImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6E232366C9007DE9DA /* AgentImage.swift */; };
 		45A72B7223237B29007DE9DA /* AgentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B7123237B29007DE9DA /* AgentState.swift */; };
 		45A72B7323237B29007DE9DA /* AgentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B7123237B29007DE9DA /* AgentState.swift */; };
-		45A72B752323810A007DE9DA /* sample.acd in Resources */ = {isa = PBXBuildFile; fileRef = 45A72B742323810A007DE9DA /* sample.acd */; };
-		45A72B762323810A007DE9DA /* sample.acd in Resources */ = {isa = PBXBuildFile; fileRef = 45A72B742323810A007DE9DA /* sample.acd */; };
+		45E3C4682323E088003BC6B7 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E3C4672323E088003BC6B7 /* Window.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,12 +46,6 @@
 		453D7F8F231F189600995AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		453D7F96231F189600995AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		453D7FA7231F20AE00995AB3 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
-		453D7FAA231F908400995AB3 /* Agent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
-		453D7FAB231F908400995AB3 /* AgentError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentError.swift; sourceTree = "<group>"; };
-		453D7FAC231F908400995AB3 /* AgentFrameLegacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentFrameLegacy.swift; sourceTree = "<group>"; };
-		453D7FAD231F908400995AB3 /* AgentExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentExtensions.swift; sourceTree = "<group>"; };
-		453D7FB1231F908400995AB3 /* Clippy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clippy.swift; sourceTree = "<group>"; };
-		453D7FB2231F908400995AB3 /* ClippyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClippyAction.swift; sourceTree = "<group>"; };
 		453D7FC1231F90DA00995AB3 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		456FDA55231FA3E900170E12 /* GhostSKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostSKView.swift; sourceTree = "<group>"; };
 		45A72A6723223968007DE9DA /* AgentCharacterDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCharacterDescription.swift; sourceTree = "<group>"; };
@@ -78,7 +59,7 @@
 		45A72B6B23236076007DE9DA /* AgentCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCharacter.swift; sourceTree = "<group>"; };
 		45A72B6E232366C9007DE9DA /* AgentImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentImage.swift; sourceTree = "<group>"; };
 		45A72B7123237B29007DE9DA /* AgentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentState.swift; sourceTree = "<group>"; };
-		45A72B742323810A007DE9DA /* sample.acd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.acd; sourceTree = "<group>"; };
+		45E3C4672323E088003BC6B7 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				453D7F76231F189600995AB3 /* Assets.xcassets */,
-				45A72B742323810A007DE9DA /* sample.acd */,
 				45A72A6623223959007DE9DA /* AgentParser */,
-				453D7FA9231F908400995AB3 /* AgentWrapper */,
-				453D7FAE231F908400995AB3 /* AgentsSwift */,
 			);
 			path = "Clippy Shared";
 			sourceTree = "<group>";
@@ -143,41 +121,14 @@
 		453D7F8E231F189600995AB3 /* Clippy macOS */ = {
 			isa = PBXGroup;
 			children = (
-				453D7F8F231F189600995AB3 /* AppDelegate.swift */,
 				453D7FA7231F20AE00995AB3 /* Application.swift */,
+				453D7F8F231F189600995AB3 /* AppDelegate.swift */,
 				453D7FC1231F90DA00995AB3 /* RootViewController.swift */,
 				453D7FCB231F914800995AB3 /* Views */,
 				453D7FC8231F912800995AB3 /* Supporting Files */,
+				45E3C4672323E088003BC6B7 /* Window.swift */,
 			);
 			path = "Clippy macOS";
-			sourceTree = "<group>";
-		};
-		453D7FA9231F908400995AB3 /* AgentWrapper */ = {
-			isa = PBXGroup;
-			children = (
-				453D7FAA231F908400995AB3 /* Agent.swift */,
-				453D7FAB231F908400995AB3 /* AgentError.swift */,
-				453D7FAC231F908400995AB3 /* AgentFrameLegacy.swift */,
-				453D7FAD231F908400995AB3 /* AgentExtensions.swift */,
-			);
-			path = AgentWrapper;
-			sourceTree = "<group>";
-		};
-		453D7FAE231F908400995AB3 /* AgentsSwift */ = {
-			isa = PBXGroup;
-			children = (
-				453D7FAF231F908400995AB3 /* Clippy */,
-			);
-			path = AgentsSwift;
-			sourceTree = "<group>";
-		};
-		453D7FAF231F908400995AB3 /* Clippy */ = {
-			isa = PBXGroup;
-			children = (
-				453D7FB1231F908400995AB3 /* Clippy.swift */,
-				453D7FB2231F908400995AB3 /* ClippyAction.swift */,
-			);
-			path = Clippy;
 			sourceTree = "<group>";
 		};
 		453D7FC7231F911D00995AB3 /* Supporting Files */ = {
@@ -302,7 +253,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				453D7F87231F189600995AB3 /* LaunchScreen.storyboard in Resources */,
-				45A72B752323810A007DE9DA /* sample.acd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +261,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				456FDA58231FBC0D00170E12 /* Assets.xcassets in Resources */,
-				45A72B762323810A007DE9DA /* sample.acd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,20 +272,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				45A72B5A23235FCB007DE9DA /* StringExtensions.swift in Sources */,
-				453D7FBF231F908400995AB3 /* ClippyAction.swift in Sources */,
 				45A72B6923236064007DE9DA /* AgentAnimation.swift in Sources */,
 				45A72B6C23236076007DE9DA /* AgentCharacter.swift in Sources */,
 				453D7F7F231F189600995AB3 /* AppDelegate.swift in Sources */,
 				45A72B6F232366C9007DE9DA /* AgentImage.swift in Sources */,
-				453D7FB7231F908400995AB3 /* AgentFrameLegacy.swift in Sources */,
-				453D7FBD231F908400995AB3 /* Clippy.swift in Sources */,
 				45A72B6623236055007DE9DA /* AgentFrame.swift in Sources */,
 				45A72B5D2323602A007DE9DA /* AgentInfo.swift in Sources */,
-				453D7FB9231F908400995AB3 /* AgentExtensions.swift in Sources */,
 				45A72B7223237B29007DE9DA /* AgentState.swift in Sources */,
-				453D7FB3231F908400995AB3 /* Agent.swift in Sources */,
 				45A72B6323236047007DE9DA /* AgentBranching.swift in Sources */,
-				453D7FB5231F908400995AB3 /* AgentError.swift in Sources */,
 				45A72B6023236038007DE9DA /* AgentBalloon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,18 +293,13 @@
 				45A72B6123236038007DE9DA /* AgentBalloon.swift in Sources */,
 				456FDA57231FB8B100170E12 /* RootViewController.swift in Sources */,
 				45A72B70232366C9007DE9DA /* AgentImage.swift in Sources */,
-				453D7FBE231F908400995AB3 /* Clippy.swift in Sources */,
 				45A72B6D23236076007DE9DA /* AgentCharacter.swift in Sources */,
 				45A72B6723236055007DE9DA /* AgentFrame.swift in Sources */,
-				453D7FB6231F908400995AB3 /* AgentError.swift in Sources */,
-				453D7FBA231F908400995AB3 /* AgentExtensions.swift in Sources */,
-				453D7FB4231F908400995AB3 /* Agent.swift in Sources */,
 				45A72B7323237B29007DE9DA /* AgentState.swift in Sources */,
-				453D7FC0231F908400995AB3 /* ClippyAction.swift in Sources */,
 				453D7FA8231F20AE00995AB3 /* Application.swift in Sources */,
-				453D7FB8231F908400995AB3 /* AgentFrameLegacy.swift in Sources */,
 				456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */,
 				45A72B5E2323602A007DE9DA /* AgentInfo.swift in Sources */,
+				45E3C4682323E088003BC6B7 /* Window.swift in Sources */,
 				453D7F90231F189600995AB3 /* AppDelegate.swift in Sources */,
 				45A72A692322396B007DE9DA /* AgentCharacterDescription.swift in Sources */,
 				45A72B6A23236064007DE9DA /* AgentAnimation.swift in Sources */,

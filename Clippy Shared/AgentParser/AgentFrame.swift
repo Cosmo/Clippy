@@ -23,6 +23,10 @@ struct AgentFrame {
     /// Image 2: Contains a moving part — like the mouth or a hand.
     ///
     let images: [AgentImage]
+    
+    var durationInSeconds: Double {
+        return Double(duration) / 100
+    }
 }
 
 extension AgentFrame {
@@ -56,5 +60,13 @@ extension AgentFrame {
             return AgentFrame(duration: duration, soundEffect: soundEffect, exitBranch: exitBranch, branchings: branchings, images: images)
         }
         return nil
+    }
+}
+
+extension AgentFrame {
+    var soundNumber: Int? {
+        guard let soundEffect = soundEffect else { return nil }
+        let cleanName = soundEffect.replacingOccurrences(of: "Audio\\", with: "").replacingOccurrences(of: ".wav", with: "")
+        return Int(cleanName) ?? nil
     }
 }

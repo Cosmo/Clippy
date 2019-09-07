@@ -61,3 +61,9 @@ extension AgentCharacter {
         return nil
     }
 }
+
+extension AgentCharacter {
+    var size: CGSize {
+        return CGSize(width: width, height: height)
+    }
+}

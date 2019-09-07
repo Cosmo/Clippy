@@ -16,23 +16,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        let agent = Clippy()
-        window = NSWindow(contentViewController: RootViewController(agent: agent))
-        window?.styleMask = debug ? [.resizable, .titled] : []
+        window = Window(contentViewController: RootViewController())
+        window?.title = applicationName
+        window?.styleMask = debug ? [.titled, NSWindow.StyleMask.resizable] : []
+        window?.level = NSWindow.Level.floating
         window?.canHide = true
         window?.backingType = .buffered
-        window?.isOpaque = false
         window?.isMovable = true
         window?.isMovableByWindowBackground = true
+        window?.backgroundColor = debug ? .green : .clear
+        // window?.contentAspectRatio = CGSize(width: 1, height: 1)
+        // window?.minSize = CGSize(width: 400, height: 400)
+        
+        /// Fixes glitches
         window?.hasShadow = false
-        window?.backgroundColor = .clear
-        window?.contentAspectRatio = Clippy.spriteSize
-        window?.minSize = Clippy.spriteSize
+        window?.isOpaque = false
+        
+        window?.delegate = self
         window?.makeKeyAndOrderFront(self)
         setupMenu()
-        
-        let acd = AgentCharacterDescription(url: Bundle.main.url(forResource: "sample", withExtension: "acd")!)
-        print(acd?.character.width)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -44,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func setupMenu() {
-        let mainMenu = NSMenu(title:"MainMenu")
+        let mainMenu = NSMenu(title: "MainMenu")
         
         let applicationMenuItem = mainMenu.addItem(withTitle: "Application", action: nil, keyEquivalent: "")
         let applicationSubMenu = NSMenu(title:"Application")
@@ -55,5 +57,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         mainMenu.setSubmenu(applicationSubMenu, for: applicationMenuItem)
         
         NSApp.mainMenu = mainMenu
+    }
+}
+
+extension AppDelegate: NSWindowDelegate {
+    func windowDidResignKey(_ notification: Notification) {
+        window?.alphaValue = 0.5
+    }
+    
+    func windowDidBecomeKey(_ notification: Notification) {
+        window?.alphaValue = 1.0
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 struct AgentAnimation {
-    let animationName: String
+    let name: String
     let transitionType: Int
     let frames: [AgentFrame]
 }
@@ -32,7 +32,7 @@ extension AgentAnimation {
         })
         
         if let animationName = animationName, let transitionType = transitionType {
-            return AgentAnimation(animationName: animationName, transitionType: transitionType, frames: frames)
+            return AgentAnimation(name: animationName, transitionType: transitionType, frames: frames)
         }
         return nil
     }

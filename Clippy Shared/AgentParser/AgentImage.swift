@@ -30,3 +30,12 @@ extension AgentImage {
         return nil
     }
 }
+
+extension AgentImage {
+    var imageNumber: Int {
+        let cleanName = fileName
+            .replacingOccurrences(of: "Images\\", with: "")
+            .replacingOccurrences(of: ".bmp", with: "")
+        return Int(cleanName) ?? 0
+    }
+}
