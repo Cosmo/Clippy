@@ -15,8 +15,8 @@
 		453D7FB4231F908400995AB3 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAA231F908400995AB3 /* Agent.swift */; };
 		453D7FB5231F908400995AB3 /* AgentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAB231F908400995AB3 /* AgentError.swift */; };
 		453D7FB6231F908400995AB3 /* AgentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAB231F908400995AB3 /* AgentError.swift */; };
-		453D7FB7231F908400995AB3 /* AgentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAC231F908400995AB3 /* AgentFrame.swift */; };
-		453D7FB8231F908400995AB3 /* AgentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAC231F908400995AB3 /* AgentFrame.swift */; };
+		453D7FB7231F908400995AB3 /* AgentFrameLegacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAC231F908400995AB3 /* AgentFrameLegacy.swift */; };
+		453D7FB8231F908400995AB3 /* AgentFrameLegacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAC231F908400995AB3 /* AgentFrameLegacy.swift */; };
 		453D7FB9231F908400995AB3 /* AgentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAD231F908400995AB3 /* AgentExtensions.swift */; };
 		453D7FBA231F908400995AB3 /* AgentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FAD231F908400995AB3 /* AgentExtensions.swift */; };
 		453D7FBD231F908400995AB3 /* Clippy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FB1231F908400995AB3 /* Clippy.swift */; };
@@ -26,6 +26,27 @@
 		456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456FDA55231FA3E900170E12 /* GhostSKView.swift */; };
 		456FDA57231FB8B100170E12 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FC1231F90DA00995AB3 /* RootViewController.swift */; };
 		456FDA58231FBC0D00170E12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F76231F189600995AB3 /* Assets.xcassets */; };
+		45A72A692322396B007DE9DA /* AgentCharacterDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72A6723223968007DE9DA /* AgentCharacterDescription.swift */; };
+		45A72B5A23235FCB007DE9DA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B5923235FCB007DE9DA /* StringExtensions.swift */; };
+		45A72B5B23235FCB007DE9DA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B5923235FCB007DE9DA /* StringExtensions.swift */; };
+		45A72B5D2323602A007DE9DA /* AgentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B5C2323602A007DE9DA /* AgentInfo.swift */; };
+		45A72B5E2323602A007DE9DA /* AgentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B5C2323602A007DE9DA /* AgentInfo.swift */; };
+		45A72B6023236038007DE9DA /* AgentBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B5F23236038007DE9DA /* AgentBalloon.swift */; };
+		45A72B6123236038007DE9DA /* AgentBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B5F23236038007DE9DA /* AgentBalloon.swift */; };
+		45A72B6323236047007DE9DA /* AgentBranching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6223236047007DE9DA /* AgentBranching.swift */; };
+		45A72B6423236047007DE9DA /* AgentBranching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6223236047007DE9DA /* AgentBranching.swift */; };
+		45A72B6623236055007DE9DA /* AgentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6523236055007DE9DA /* AgentFrame.swift */; };
+		45A72B6723236055007DE9DA /* AgentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6523236055007DE9DA /* AgentFrame.swift */; };
+		45A72B6923236064007DE9DA /* AgentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6823236064007DE9DA /* AgentAnimation.swift */; };
+		45A72B6A23236064007DE9DA /* AgentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6823236064007DE9DA /* AgentAnimation.swift */; };
+		45A72B6C23236076007DE9DA /* AgentCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6B23236076007DE9DA /* AgentCharacter.swift */; };
+		45A72B6D23236076007DE9DA /* AgentCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6B23236076007DE9DA /* AgentCharacter.swift */; };
+		45A72B6F232366C9007DE9DA /* AgentImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6E232366C9007DE9DA /* AgentImage.swift */; };
+		45A72B70232366C9007DE9DA /* AgentImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6E232366C9007DE9DA /* AgentImage.swift */; };
+		45A72B7223237B29007DE9DA /* AgentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B7123237B29007DE9DA /* AgentState.swift */; };
+		45A72B7323237B29007DE9DA /* AgentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B7123237B29007DE9DA /* AgentState.swift */; };
+		45A72B752323810A007DE9DA /* sample.acd in Resources */ = {isa = PBXBuildFile; fileRef = 45A72B742323810A007DE9DA /* sample.acd */; };
+		45A72B762323810A007DE9DA /* sample.acd in Resources */ = {isa = PBXBuildFile; fileRef = 45A72B742323810A007DE9DA /* sample.acd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,12 +61,24 @@
 		453D7FA7231F20AE00995AB3 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		453D7FAA231F908400995AB3 /* Agent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		453D7FAB231F908400995AB3 /* AgentError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentError.swift; sourceTree = "<group>"; };
-		453D7FAC231F908400995AB3 /* AgentFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentFrame.swift; sourceTree = "<group>"; };
+		453D7FAC231F908400995AB3 /* AgentFrameLegacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentFrameLegacy.swift; sourceTree = "<group>"; };
 		453D7FAD231F908400995AB3 /* AgentExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentExtensions.swift; sourceTree = "<group>"; };
 		453D7FB1231F908400995AB3 /* Clippy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clippy.swift; sourceTree = "<group>"; };
 		453D7FB2231F908400995AB3 /* ClippyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClippyAction.swift; sourceTree = "<group>"; };
 		453D7FC1231F90DA00995AB3 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		456FDA55231FA3E900170E12 /* GhostSKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostSKView.swift; sourceTree = "<group>"; };
+		45A72A6723223968007DE9DA /* AgentCharacterDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCharacterDescription.swift; sourceTree = "<group>"; };
+		45A72A6A232257DB007DE9DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		45A72B5923235FCB007DE9DA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		45A72B5C2323602A007DE9DA /* AgentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentInfo.swift; sourceTree = "<group>"; };
+		45A72B5F23236038007DE9DA /* AgentBalloon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentBalloon.swift; sourceTree = "<group>"; };
+		45A72B6223236047007DE9DA /* AgentBranching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentBranching.swift; sourceTree = "<group>"; };
+		45A72B6523236055007DE9DA /* AgentFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentFrame.swift; sourceTree = "<group>"; };
+		45A72B6823236064007DE9DA /* AgentAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentAnimation.swift; sourceTree = "<group>"; };
+		45A72B6B23236076007DE9DA /* AgentCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCharacter.swift; sourceTree = "<group>"; };
+		45A72B6E232366C9007DE9DA /* AgentImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentImage.swift; sourceTree = "<group>"; };
+		45A72B7123237B29007DE9DA /* AgentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentState.swift; sourceTree = "<group>"; };
+		45A72B742323810A007DE9DA /* sample.acd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.acd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +102,7 @@
 		453D7F6D231F189400995AB3 = {
 			isa = PBXGroup;
 			children = (
+				45A72A6A232257DB007DE9DA /* README.md */,
 				453D7F72231F189400995AB3 /* Clippy Shared */,
 				453D7F7D231F189600995AB3 /* Clippy iOS */,
 				453D7F8E231F189600995AB3 /* Clippy macOS */,
@@ -80,8 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				453D7F76231F189600995AB3 /* Assets.xcassets */,
-				453D7FA9231F908400995AB3 /* Agent */,
-				453D7FAE231F908400995AB3 /* Agents */,
+				45A72B742323810A007DE9DA /* sample.acd */,
+				45A72A6623223959007DE9DA /* AgentParser */,
+				453D7FA9231F908400995AB3 /* AgentWrapper */,
+				453D7FAE231F908400995AB3 /* AgentsSwift */,
 			);
 			path = "Clippy Shared";
 			sourceTree = "<group>";
@@ -116,23 +152,23 @@
 			path = "Clippy macOS";
 			sourceTree = "<group>";
 		};
-		453D7FA9231F908400995AB3 /* Agent */ = {
+		453D7FA9231F908400995AB3 /* AgentWrapper */ = {
 			isa = PBXGroup;
 			children = (
 				453D7FAA231F908400995AB3 /* Agent.swift */,
 				453D7FAB231F908400995AB3 /* AgentError.swift */,
-				453D7FAC231F908400995AB3 /* AgentFrame.swift */,
+				453D7FAC231F908400995AB3 /* AgentFrameLegacy.swift */,
 				453D7FAD231F908400995AB3 /* AgentExtensions.swift */,
 			);
-			path = Agent;
+			path = AgentWrapper;
 			sourceTree = "<group>";
 		};
-		453D7FAE231F908400995AB3 /* Agents */ = {
+		453D7FAE231F908400995AB3 /* AgentsSwift */ = {
 			isa = PBXGroup;
 			children = (
 				453D7FAF231F908400995AB3 /* Clippy */,
 			);
-			path = Agents;
+			path = AgentsSwift;
 			sourceTree = "<group>";
 		};
 		453D7FAF231F908400995AB3 /* Clippy */ = {
@@ -167,6 +203,23 @@
 				456FDA55231FA3E900170E12 /* GhostSKView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		45A72A6623223959007DE9DA /* AgentParser */ = {
+			isa = PBXGroup;
+			children = (
+				45A72A6723223968007DE9DA /* AgentCharacterDescription.swift */,
+				45A72B5923235FCB007DE9DA /* StringExtensions.swift */,
+				45A72B5C2323602A007DE9DA /* AgentInfo.swift */,
+				45A72B5F23236038007DE9DA /* AgentBalloon.swift */,
+				45A72B6223236047007DE9DA /* AgentBranching.swift */,
+				45A72B6523236055007DE9DA /* AgentFrame.swift */,
+				45A72B6823236064007DE9DA /* AgentAnimation.swift */,
+				45A72B6B23236076007DE9DA /* AgentCharacter.swift */,
+				45A72B6E232366C9007DE9DA /* AgentImage.swift */,
+				45A72B7123237B29007DE9DA /* AgentState.swift */,
+			);
+			path = AgentParser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				453D7F87231F189600995AB3 /* LaunchScreen.storyboard in Resources */,
+				45A72B752323810A007DE9DA /* sample.acd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				456FDA58231FBC0D00170E12 /* Assets.xcassets in Resources */,
+				45A72B762323810A007DE9DA /* sample.acd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,13 +322,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45A72B5A23235FCB007DE9DA /* StringExtensions.swift in Sources */,
 				453D7FBF231F908400995AB3 /* ClippyAction.swift in Sources */,
+				45A72B6923236064007DE9DA /* AgentAnimation.swift in Sources */,
+				45A72B6C23236076007DE9DA /* AgentCharacter.swift in Sources */,
 				453D7F7F231F189600995AB3 /* AppDelegate.swift in Sources */,
-				453D7FB7231F908400995AB3 /* AgentFrame.swift in Sources */,
+				45A72B6F232366C9007DE9DA /* AgentImage.swift in Sources */,
+				453D7FB7231F908400995AB3 /* AgentFrameLegacy.swift in Sources */,
 				453D7FBD231F908400995AB3 /* Clippy.swift in Sources */,
+				45A72B6623236055007DE9DA /* AgentFrame.swift in Sources */,
+				45A72B5D2323602A007DE9DA /* AgentInfo.swift in Sources */,
 				453D7FB9231F908400995AB3 /* AgentExtensions.swift in Sources */,
+				45A72B7223237B29007DE9DA /* AgentState.swift in Sources */,
 				453D7FB3231F908400995AB3 /* Agent.swift in Sources */,
+				45A72B6323236047007DE9DA /* AgentBranching.swift in Sources */,
 				453D7FB5231F908400995AB3 /* AgentError.swift in Sources */,
+				45A72B6023236038007DE9DA /* AgentBalloon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,16 +345,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45A72B6423236047007DE9DA /* AgentBranching.swift in Sources */,
+				45A72B5B23235FCB007DE9DA /* StringExtensions.swift in Sources */,
+				45A72B6123236038007DE9DA /* AgentBalloon.swift in Sources */,
 				456FDA57231FB8B100170E12 /* RootViewController.swift in Sources */,
+				45A72B70232366C9007DE9DA /* AgentImage.swift in Sources */,
 				453D7FBE231F908400995AB3 /* Clippy.swift in Sources */,
+				45A72B6D23236076007DE9DA /* AgentCharacter.swift in Sources */,
+				45A72B6723236055007DE9DA /* AgentFrame.swift in Sources */,
 				453D7FB6231F908400995AB3 /* AgentError.swift in Sources */,
 				453D7FBA231F908400995AB3 /* AgentExtensions.swift in Sources */,
 				453D7FB4231F908400995AB3 /* Agent.swift in Sources */,
+				45A72B7323237B29007DE9DA /* AgentState.swift in Sources */,
 				453D7FC0231F908400995AB3 /* ClippyAction.swift in Sources */,
 				453D7FA8231F20AE00995AB3 /* Application.swift in Sources */,
-				453D7FB8231F908400995AB3 /* AgentFrame.swift in Sources */,
+				453D7FB8231F908400995AB3 /* AgentFrameLegacy.swift in Sources */,
 				456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */,
+				45A72B5E2323602A007DE9DA /* AgentInfo.swift in Sources */,
 				453D7F90231F189600995AB3 /* AppDelegate.swift in Sources */,
+				45A72A692322396B007DE9DA /* AgentCharacterDescription.swift in Sources */,
+				45A72B6A23236064007DE9DA /* AgentAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +508,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				"Texture Atlas Maximum Size" = 4096x4096;
 			};
 			name = Debug;
 		};
@@ -454,6 +529,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				"Texture Atlas Maximum Size" = 4096x4096;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

@@ -21,12 +21,12 @@ struct Clippy: Agent {
     init() {
     }
     
-    private func frame(duration: Int, positionX: Int, positionY: Int) -> AgentFrame? {
+    private func frame(duration: Int, positionX: Int, positionY: Int) -> AgentFrameLegacy? {
         guard let texture = try? textureAtPosition(x: positionX, y: positionY) else { return nil }
-        return AgentFrame(duration: duration, texture: texture)
+        return AgentFrameLegacy(duration: duration, texture: texture)
     }
     
-    func frames(from animation: Action) -> [AgentFrame?] {
+    func frames(from animation: Action) -> [AgentFrameLegacy?] {
         switch animation {
         case .congratulate: return [
             frame(duration: 100, positionX: 0, positionY: 0),

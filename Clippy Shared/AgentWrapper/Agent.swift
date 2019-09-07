@@ -17,5 +17,5 @@ protocol Agent {
     
     static var startAction: Action { get }
     
-    func frames(from animation: Action) -> [AgentFrame?]
+    func frames(from animation: Action) -> [AgentFrameLegacy?]
 }

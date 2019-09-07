@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-struct AgentFrame {
+struct AgentFrameLegacy {
     var duration: Int
     var texture: SKTexture
 }

@@ -21,6 +21,30 @@ git clone https://github.com/Cosmo/Clippy.git
 
 ![Demo](https://github.com/Cosmo/Clippy/blob/master/Clippy.gif?raw=true)
 
+## Add other Agents
+
+### Requirements
+
+`brew install imagemagick`
+`brew install ffmpeg`
+
+### Conversion
+
+This project includes an automated converter.
+It converts opaque BMP sprites, removes backgrounds, puts them together to one big transparent PNG file and converts all sounds to MP3. 
+
+#### Run converter
+
+`./convert AGENT_PATH NEW_NAME`
+
+`AGENT_PATH` path to decompiled agent.
+`NEW_NAME` should only include lowercase letters and underscores.
+
+#### Example
+
+`./convert agents/CLIPPIT clippy`
+
+
 ## Todos
 
 * [x] Animations (Right-Click → Animate!)

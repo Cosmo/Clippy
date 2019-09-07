@@ -30,6 +30,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window?.minSize = Clippy.spriteSize
         window?.makeKeyAndOrderFront(self)
         setupMenu()
+        
+        let acd = AgentCharacterDescription(url: Bundle.main.url(forResource: "sample", withExtension: "acd")!)
+        print(acd?.character.width)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
