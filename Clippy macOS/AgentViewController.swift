@@ -125,8 +125,8 @@ extension AgentViewController {
         let menuItems = [
             NSMenuItem(title: "Hide", action: nil, keyEquivalent: ""),
             NSMenuItem.separator(),
-            NSMenuItem(title: "Options …", action: nil, keyEquivalent: ""),
-            NSMenuItem(title: "Choose Assistant …", action: #selector(chooseAssistantAction), keyEquivalent: ""),
+            NSMenuItem(title: "Options…", action: nil, keyEquivalent: ""),
+            NSMenuItem(title: "Choose Assistant…", action: #selector(chooseAssistantAction), keyEquivalent: ""),
             NSMenuItem(title: "Animate!", action: #selector(animateAction), keyEquivalent: "")
         ]
         
