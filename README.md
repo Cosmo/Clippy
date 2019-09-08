@@ -24,7 +24,9 @@ git clone https://github.com/Cosmo/Clippy.git
   * [ ] Mute / Unmute
 * [x] Always on top
 * [x] Transparent when out of focus
-* [x] Support for other Agents
+* [x] Support for other agents
+* [x] Status Bar Item
+* [ ] Idle animations
 * [ ] HitTest on transparent regions
 * [ ] Mute
 * [ ] Actions
@@ -32,7 +34,7 @@ git clone https://github.com/Cosmo/Clippy.git
   * [ ] Show
   * [ ] MoveTo x y
   * [ ] GestureAt x y
-  * [ ] Play animation
+  * [x] Play animation
 * [ ] Idle animations
 * [ ] Languages
 * [ ] Support branching and probability
