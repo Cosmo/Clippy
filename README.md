@@ -25,6 +25,7 @@ git clone https://github.com/Cosmo/Clippy.git
 * [x] Always on top
 * [x] Transparent when out of focus
 * [x] Support for other agents
+* [ ] Agent picker 
 * [x] Status Bar Item
 * [ ] Idle animations
 * [ ] HitTest on transparent regions
