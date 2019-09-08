@@ -52,8 +52,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Agents menu
         let agentsMenu = NSMenu(title: "Agents")
         let agentNames = AgentCharacterDescription.agentNames()
-        let agentsPath = AgentCharacterDescription.agentsURL().absoluteString
-        if FileManager.default.fileExists(atPath: agentsPath, isDirectory: nil) {
+        let agentsPath = AgentCharacterDescription.agentsURL().path
+        
+        var isDirectory = ObjCBool(true)
+        let exists = FileManager.default.fileExists(atPath: agentsPath, isDirectory: &isDirectory)
+        
+        print(exists && isDirectory.boolValue)
+        
+        if exists && isDirectory.boolValue {
             if agentNames.isEmpty {
                 agentsMenu.addItem(withTitle: "No Agents found.",
                                    action: nil,
