@@ -11,6 +11,7 @@ import AVKit
 import SpriteKit
 
 class AgentController {
+    var isMuted = false
     var player: AVPlayer = {
         return AVPlayer()
     }()
@@ -47,8 +48,8 @@ class AgentController {
         let action = SKAction.run {
             let playerItem = AVPlayerItem(url: soundURL)
             self.player.replaceCurrentItem(with: playerItem)
-            self.player.volume = 1.0
             self.player.play()
+            self.player.volume = self.isMuted ? 0 : 1.0
         }
         return action
     }
@@ -64,7 +65,7 @@ class AgentController {
         self.agentView?.agentSprite.texture = SKTexture(cgImage: try! agent.textureAtIndex(index: 0))
     }
     
-    func play(animation: AgentAnimation) {
+    func play(animation: AgentAnimation, withSoundEnabled soundEnabled: Bool = true) {
         guard let agent = agent else { return }
         print(animation.name)
         
@@ -75,7 +76,7 @@ class AgentController {
         DispatchQueue.global(qos: .background).async {
             
             for frame in animation.frames {
-                if let audioAction = self.audioActionForFrame(frame: frame) {
+                if soundEnabled, let audioAction = self.audioActionForFrame(frame: frame) {
                     actions.append(audioAction)
                 }
                 
@@ -101,4 +102,3 @@ class AgentController {
         
     }
 }
-
