@@ -12,6 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let applicationName = "Clippy"
     var window: NSWindow?
     var statusItem: NSStatusItem?
+    var agentsMenuItem: NSMenuItem?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         window = AgentWindow(contentRect: CGRect.zero, styleMask: [], backing: .buffered, defer: true)
@@ -41,15 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         setupStatusBarMenu()
     }
     
-    func setupStatusBarMenu() {
-        // Status bar menu
-        let statusBarMenu = NSMenu(title: "Clippy")
-        let agentsItem = NSMenuItem(title: "Agents", action: nil, keyEquivalent: "")
-        statusBarMenu.addItem(agentsItem)
-        statusBarMenu.addItem(NSMenuItem.separator())
-        statusBarMenu.addItem(withTitle: "Quit \(applicationName)", action: #selector(quitAction(sender:)), keyEquivalent: "")
-        
-        // Agents menu
+    func createAgentsMenu() -> NSMenu {
         let agentsMenu = NSMenu(title: "Agents")
         let agentNames = AgentCharacterDescription.agentNames()
         
@@ -63,14 +56,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         agentsMenu.addItem(NSMenuItem.separator())
-        agentsMenu.addItem(withTitle: "Open Agents Folder",
+        agentsMenu.addItem(withTitle: "Show in Finder",
                            action: #selector(openFolderAction(sender:)),
                            keyEquivalent: "")
         agentsMenu.addItem(NSMenuItem.separator())
-        agentsMenu.addItem(withTitle: "Reload…",
+        agentsMenu.addItem(withTitle: "Reload",
                            action: #selector(reloadAction(sender:)),
                            keyEquivalent: "")
-        statusBarMenu.setSubmenu(agentsMenu, for: agentsItem)
+        return agentsMenu
+    }
+    
+    func setupStatusBarMenu() {
+        // Status bar menu
+        let statusBarMenu = NSMenu(title: "Clippy")
+        agentsMenuItem = NSMenuItem(title: "Agents", action: nil, keyEquivalent: "")
+        guard let menuItem = agentsMenuItem else  { return }
+        statusBarMenu.addItem(menuItem)
+        statusBarMenu.addItem(NSMenuItem.separator())
+        statusBarMenu.addItem(withTitle: "Quit \(applicationName)", action: #selector(quitAction(sender:)), keyEquivalent: "")
+        
+        // Agents menu
+        statusBarMenu.setSubmenu(createAgentsMenu(), for: menuItem)
         
         statusItem?.menu = statusBarMenu
     }
@@ -80,7 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func reloadAction(sender: AnyObject) {
-        print("Reloading.")
+        agentsMenuItem?.submenu = createAgentsMenu()
     }
     
     @objc func openFolderAction(sender: AnyObject) {
