@@ -39,7 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // Application menu
         let appMenu = NSMenu(title: "Application")
-        appMenu.addItem(withTitle: "Quit \(applicationName)", action: #selector(quit(sender:)), keyEquivalent: "q")
+        appMenu.addItem(withTitle: "Quit \(applicationName)", action: #selector(quitAction(sender:)), keyEquivalent: "q")
         mainMenu.setSubmenu(appMenu, for: appItem)
         
         NSApp.mainMenu = mainMenu
@@ -60,19 +60,55 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let statusBarMenu = NSMenu(title: "Clippy")
         let agentsItem = NSMenuItem(title: "Agents", action: nil, keyEquivalent: "")
         statusBarMenu.addItem(agentsItem)
-        statusBarMenu.addItem(withTitle: "Quit", action: #selector(quit(sender:)), keyEquivalent: "")
+        statusBarMenu.addItem(withTitle: "Quit", action: #selector(quitAction(sender:)), keyEquivalent: "")
         
         // Agents menu
         let agentsMenu = NSMenu(title: "Agents")
-        for agentName in AgentCharacterDescription.agentNames() {
-            agentsMenu.addItem(withTitle: agentName.capitalized, action: nil, keyEquivalent: "")
+        let agentNames = AgentCharacterDescription.agentNames()
+        let agentsPath = AgentCharacterDescription.agentsURL().absoluteString
+        if FileManager.default.fileExists(atPath: agentsPath, isDirectory: nil) {
+            if agentNames.isEmpty {
+                agentsMenu.addItem(withTitle: "No Agents found.",
+                                   action: nil,
+                                   keyEquivalent: "")
+                agentsMenu.addItem(NSMenuItem.separator())
+                agentsMenu.addItem(withTitle: "Open Agents Folder",
+                                   action: #selector(openFolderAction(sender:)),
+                                   keyEquivalent: "")
+                agentsMenu.addItem(NSMenuItem.separator())
+                agentsMenu.addItem(withTitle: "Reload…",
+                                   action: #selector(reloadAction(sender:)),
+                                   keyEquivalent: "")
+            } else {
+                for agentName in agentNames {
+                    agentsMenu.addItem(withTitle: agentName.capitalized, action: nil, keyEquivalent: "")
+                }
+            }
+        } else {
+            agentsMenu.addItem(withTitle: "Create Agents Folder",
+                               action: #selector(createFolderAction(sender:)),
+                               keyEquivalent: "")
         }
         statusBarMenu.setSubmenu(agentsMenu, for: agentsItem)
         
         statusItem?.menu = statusBarMenu
     }
     
-    @objc func quit(sender: AnyObject) {
+    @objc func quitAction(sender: AnyObject) {
         NSApplication.shared.terminate(self)
+    }
+    
+    @objc func reloadAction(sender: AnyObject) {
+        print("Reloading.")
+    }
+    
+    @objc func openFolderAction(sender: AnyObject) {
+        NSWorkspace.shared.open(AgentCharacterDescription.agentsURL())
+    }
+    
+    @objc func createFolderAction(sender: AnyObject) {
+        let agentsURL = AgentCharacterDescription.agentsURL()
+        try? FileManager.default.createDirectory(at: agentsURL, withIntermediateDirectories: true, attributes: nil)
+        openFolderAction(sender: sender)
     }
 }
