@@ -34,7 +34,7 @@ class AgentController {
         guard let agent = AgentCharacterDescription(resourceName: name) else { return }
         delegate?.willRunAgent(agent: agent)
         self.agent = agent
-        if animated, let animation = agent.findAnimation("Greeting") {
+        if animated, let animation = agent.findAnimation("Show") {
             play(animation: animation)
         } else {
             showInitialFrame()
