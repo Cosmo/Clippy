@@ -27,6 +27,7 @@ class AgentController {
     }
     
     func run(name: String) throws {
+        print(name)
         guard let agent = AgentCharacterDescription(resourceName: name) else { return }
         self.agent = agent
         guard let animation = agent.findAnimation("Greeting") else { return }
@@ -51,24 +52,79 @@ class AgentController {
         play(animation: animation)
     }
     
+    func mergeImages(_ images: [CGImage], width: Int, height: Int) -> CGImage? {
+        var data = Data(capacity: 0)
+        guard let colorSpace = CGColorSpace(name: CGColorSpace.genericRGBLinear) else { return nil }
+        let image = data.withUnsafeMutableBytes({ (bytes: UnsafeMutableRawBufferPointer) -> CGImage? in
+            guard let context = CGContext(data: nil,
+                                    width: width,
+                                    height: height,
+                                    bitsPerComponent: 8,
+                                    bytesPerRow: 0,
+                                    space: colorSpace,
+                                    bitmapInfo: 1) else {
+                                        return nil
+            }
+            for image in images {
+                context.draw(image, in: CGRect(x: 0,
+                                               y: 0,
+                                               width: image.width,
+                                               height: image.height))
+            }
+            return context.makeImage()
+        })
+        
+        return image
+    }
+    
+//    private func drawLogoIn(_ image: NSImage, _ logo: NSImage, position: CGPoint) -> NSImage {
+//        let renderer = UIGraphicsImageRenderer(size: image.size)
+//        return renderer.image { context in
+//            image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
+//            logo.draw(in: CGRect(origin: position, size: logo.size))
+//        }
+//    }
+    
     func play(animation: AgentAnimation) {
         guard let agent = agent else { return }
         print(animation.name)
         
         var actions: [SKAction] = []
+        let width = agent.character.width
+        let height = agent.character.height
         
-        for frame in animation.frames {
-            if let audioAction = audioActionForFrame(frame: frame) {
-                actions.append(audioAction)
-            }
-            let image = frame.images.last
-            let texture = try! agent.textureAtIndex(index: image?.imageNumber ?? agent.rows * agent.columns)
-            let action = SKAction.animate(with: [texture], timePerFrame: frame.durationInSeconds)
+        DispatchQueue.global(qos: .background).async {
             
-            actions.append(action)
+            for frame in animation.frames {
+                if let audioAction = self.audioActionForFrame(frame: frame) {
+                    actions.append(audioAction)
+                }
+                
+                var texture: SKTexture?
+                
+                if frame.images.count == 1, let image = frame.images.first {
+                    texture = try! agent.textureAtIndex(index: image.imageNumber)
+                }
+                if frame.images.count > 1 {
+                    let cgImages = frame.images.reversed().map{ try! agent.textureAtIndex(index: $0.imageNumber).cgImage() }
+                    if let mergedImage = self.mergeImages(cgImages, width: width, height: height) {
+                        texture = SKTexture(cgImage: mergedImage)
+                    }
+                }
+                
+                let finalTexture = texture ?? (try! agent.textureAtIndex(index: 0))
+                
+                
+                let action = SKAction.animate(with: [finalTexture], timePerFrame: frame.durationInSeconds)
+                
+                actions.append(action)
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+                self.agentView?.agentSprite.run(SKAction.sequence(actions))
+            })
         }
         
-        agentView?.agentSprite.run(SKAction.sequence(actions))
     }
 }
 

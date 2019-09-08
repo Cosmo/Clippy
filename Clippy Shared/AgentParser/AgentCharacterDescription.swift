@@ -9,6 +9,10 @@
 import Foundation
 import SpriteKit
 
+enum AgentError: Error {
+    case frameOutOfBounds
+}
+
 struct AgentCharacterDescription {
     var character: AgentCharacter
     var balloon: AgentBalloon
@@ -74,24 +78,20 @@ extension AgentCharacterDescription {
         return homeDirectory
     }
     
-    static func availableAgents() -> [String] {
-        var assistants: [String] = []
+    static func agentNames() -> [String] {
+        var agentNames: [String] = []
         let items = try! FileManager.default.contentsOfDirectory(at: agentsURL(), includingPropertiesForKeys: nil, options: [])
         for item in items {
             if item.hasDirectoryPath {
-                assistants.append(item.lastPathComponent)
+                agentNames.append(item.lastPathComponent)
             }
         }
-        return assistants
+        return agentNames
     }
     
     static func randomAgentName() -> String? {
-        availableAgents().randomElement()
+        agentNames().randomElement()
     }
-}
-
-enum AgentError: Error {
-    case frameOutOfBounds
 }
 
 extension AgentCharacterDescription {
