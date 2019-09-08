@@ -81,7 +81,13 @@ extension AgentCharacterDescription {
     
     static func agentNames() -> [String] {
         var agentNames: [String] = []
-        let items = try! FileManager.default.contentsOfDirectory(at: agentsURL(), includingPropertiesForKeys: nil, options: [])
+        let fileManager = FileManager.default
+        guard let items = try? fileManager.contentsOfDirectory(at: agentsURL(),
+                                                               includingPropertiesForKeys: nil,
+                                                               options: []) else {
+            return []
+        }
+        
         for item in items {
             if item.hasDirectoryPath {
                 agentNames.append(item.lastPathComponent)
