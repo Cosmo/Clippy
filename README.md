@@ -17,15 +17,57 @@ git clone https://github.com/Cosmo/Clippy.git
 
 * Right-Click to animate.
 
+## Todos
+
+* [x] Animations (Right-Click → Animate!)
+* [x] Sounds
+  * [ ] Mute / Unmute
+* [x] Always on top
+* [x] Transparent when out of focus
+* [x] Support for other agents
+* [x] Status Bar Item
+* [ ] Idle animations
+* [ ] HitTest on transparent regions
+* [ ] Original size / Zoom
+* [ ] Mute
+* [ ] Actions
+  * [ ] Hide
+  * [ ] Show
+  * [ ] MoveTo x y
+  * [ ] GestureAt x y
+  * [x] Play animation
+* [ ] Idle animations
+* [ ] Languages
+* [ ] Support branching and probability
+* [ ] Control via command line
+
 ## Demo
 
 ![Demo](https://github.com/Cosmo/Clippy/blob/master/Clippy.gif?raw=true)
 
-## Todos
+## Add other Agents
 
-* [x] Animations (Right-Click → Animate!)
-* [ ] Sound
-* [ ] Support for other Agents
+### Requirements
+
+`brew install imagemagick`
+`brew install ffmpeg`
+
+### Conversion
+
+This project includes an automated converter.
+It converts opaque BMP sprites, removes backgrounds, puts them together to one big transparent PNG file and converts all sounds to MP3. 
+
+#### Run converter
+
+`./convert AGENT_PATH NEW_NAME`
+
+`AGENT_PATH` path to decompiled agent.
+`NEW_NAME` should only include lowercase letters and underscores.
+
+#### Example
+
+`./convert agents/CLIPPIT clippy`
+
 
 ## Attributions
 
