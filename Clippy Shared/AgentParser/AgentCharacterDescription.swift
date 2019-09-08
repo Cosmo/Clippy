@@ -21,7 +21,7 @@ struct AgentCharacterDescription {
     
     var basePath: URL
     var resourceName: String
-    var spriteMap: SKTexture
+    var spriteMap: CGImage
     
     init?(baseURL: URL) {
         self.basePath = baseURL
@@ -48,8 +48,9 @@ struct AgentCharacterDescription {
         let states = stateTexts.compactMap { AgentState.parse(content: $0) }
         
         // Sprite Map
-        let imageURL = URL(fileURLWithPath: "/Users/Devran/Agents/\(resourceName)/\(resourceName)_sprite_map.png")
-        spriteMap = SKTexture(image: NSImage(contentsOf: imageURL)!)
+        let imageURL = basePath.appendingPathComponent("\(resourceName)_sprite_map.png")
+        guard let image = NSImage(contentsOf: imageURL)?.cgImage(forProposedRect: nil, context: nil, hints: nil) else { return nil }
+        spriteMap = image
         
         if let character = character, let balloon = balloon {
             self.character = character
@@ -96,30 +97,23 @@ extension AgentCharacterDescription {
 
 extension AgentCharacterDescription {
     var columns: Int {
-        let columns = Int(spriteMap.size().width) / character.width
+        let columns = Int(spriteMap.width) / character.width
         return columns
     }
     var rows: Int {
-        let rows = Int(spriteMap.size().height) / character.height
+        let rows = Int(spriteMap.height) / character.height
         return rows
     }
     
-    func textureAtPosition(x: Int, y: Int) throws -> SKTexture {
+    func textureAtPosition(x: Int, y: Int) throws -> CGImage {
         guard (0...rows ~= y && 0...columns ~= x) else { throw AgentError.frameOutOfBounds }
-        
-        let unitWidth = CGFloat(character.width) / spriteMap.size().width
-        let unitHeight = CGFloat(character.height) / spriteMap.size().height
-        
-        let rectX = CGFloat(x) * unitWidth
-        let rectY = CGFloat((rows - 1) - y) * unitHeight
-        
-        let textureRect = CGRect(x: rectX, y: rectY, width: unitWidth, height: unitHeight)
-        let texture = SKTexture(rect: textureRect, in: spriteMap)
-        texture.filteringMode = .nearest
-        return texture
+        let textureWidth = character.width
+        let textureHeight = character.height
+        let rect = CGRect(x: x * textureWidth, y: y * textureHeight, width: textureWidth, height: textureHeight)
+        return spriteMap.cropping(to: rect)!
     }
     
-    func textureAtIndex(index: Int) throws -> SKTexture {
+    func textureAtIndex(index: Int) throws -> CGImage {
         let x = index % columns
         let y = index / columns
         return try! textureAtPosition(x: x, y: y)

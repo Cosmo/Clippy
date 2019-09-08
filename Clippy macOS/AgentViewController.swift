@@ -40,7 +40,7 @@ class AgentViewController: NSViewController {
     override func viewDidAppear() {
         super.viewDidAppear()
         view.window?.makeFirstResponder(self)
-        try? agentController.run(name: "clippit")
+        try? agentController.run(name: "f1")
     }
     
     func setupConstraints() {

@@ -92,22 +92,22 @@ class AgentController {
                     actions.append(audioAction)
                 }
                 
-                var texture: SKTexture?
+                var texture: CGImage?
                 
                 if frame.images.count == 1, let image = frame.images.first {
                     texture = try! agent.textureAtIndex(index: image.imageNumber)
                 }
                 if frame.images.count > 1 {
-                    let cgImages = frame.images.reversed().map{ try! agent.textureAtIndex(index: $0.imageNumber).cgImage() }
+                    let cgImages = frame.images.reversed().map{ try! agent.textureAtIndex(index: $0.imageNumber) }
                     if let mergedImage = self.mergeImages(cgImages, width: width, height: height) {
-                        texture = SKTexture(cgImage: mergedImage)
+                        texture = mergedImage
                     }
                 }
                 
                 let finalTexture = texture ?? (try! agent.textureAtIndex(index: 0))
                 
                 
-                let action = SKAction.animate(with: [finalTexture], timePerFrame: frame.durationInSeconds)
+                let action = SKAction.animate(with: [SKTexture(cgImage: finalTexture)], timePerFrame: frame.durationInSeconds)
                 
                 actions.append(action)
             }
