@@ -59,31 +59,6 @@ class AgentController {
         play(animation: animation)
     }
     
-    func mergeImages(_ images: [CGImage], width: Int, height: Int) -> CGImage? {
-        var data = Data(capacity: 0)
-        guard let colorSpace = CGColorSpace(name: CGColorSpace.genericRGBLinear) else { return nil }
-        let image = data.withUnsafeMutableBytes({ (bytes: UnsafeMutableRawBufferPointer) -> CGImage? in
-            guard let context = CGContext(data: nil,
-                                    width: width,
-                                    height: height,
-                                    bitsPerComponent: 8,
-                                    bytesPerRow: 0,
-                                    space: colorSpace,
-                                    bitmapInfo: 1) else {
-                                        return nil
-            }
-            for image in images {
-                context.draw(image, in: CGRect(x: 0,
-                                               y: 0,
-                                               width: image.width,
-                                               height: image.height))
-            }
-            return context.makeImage()
-        })
-        
-        return image
-    }
-    
     func showInitialFrame() {
         guard let agent = agent else { return }
         self.agentView?.agentSprite.texture = SKTexture(cgImage: try! agent.textureAtIndex(index: 0))
@@ -107,7 +82,7 @@ class AgentController {
                 var texture: CGImage?
                 
                 let cgImages = frame.images.reversed().map{ try! agent.textureAtIndex(index: $0.imageNumber) }
-                if let mergedImage = self.mergeImages(cgImages, width: width, height: height) {
+                if let mergedImage = CGImage.mergeImages(cgImages, width: width, height: height) {
                     texture = mergedImage
                 }
                 

@@ -12,6 +12,8 @@
 		453D7F90231F189600995AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F8F231F189600995AB3 /* AppDelegate.swift */; };
 		456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456FDA55231FA3E900170E12 /* GhostSKView.swift */; };
 		456FDA57231FB8B100170E12 /* AgentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FC1231F90DA00995AB3 /* AgentViewController.swift */; };
+		459AC4942325799600C43B06 /* CGImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AC4932325799600C43B06 /* CGImageExtensions.swift */; };
+		459AC4952325799600C43B06 /* CGImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AC4932325799600C43B06 /* CGImageExtensions.swift */; };
 		45A72A692322396B007DE9DA /* AgentCharacterDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72A6723223968007DE9DA /* AgentCharacterDescription.swift */; };
 		45A72B5A23235FCB007DE9DA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B5923235FCB007DE9DA /* StringExtensions.swift */; };
 		45A72B5B23235FCB007DE9DA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B5923235FCB007DE9DA /* StringExtensions.swift */; };
@@ -51,6 +53,7 @@
 		453D7F96231F189600995AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		453D7FC1231F90DA00995AB3 /* AgentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentViewController.swift; sourceTree = "<group>"; };
 		456FDA55231FA3E900170E12 /* GhostSKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostSKView.swift; sourceTree = "<group>"; };
+		459AC4932325799600C43B06 /* CGImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageExtensions.swift; sourceTree = "<group>"; };
 		45A72A6723223968007DE9DA /* AgentCharacterDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCharacterDescription.swift; sourceTree = "<group>"; };
 		45A72A6A232257DB007DE9DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		45A72B5923235FCB007DE9DA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				45A72A6623223959007DE9DA /* AgentParser */,
+				459AC4932325799600C43B06 /* CGImageExtensions.swift */,
 			);
 			path = "Clippy Shared";
 			sourceTree = "<group>";
@@ -292,6 +296,7 @@
 				45A72B6C23236076007DE9DA /* AgentCharacter.swift in Sources */,
 				453D7F7F231F189600995AB3 /* AppDelegate.swift in Sources */,
 				45A72B6F232366C9007DE9DA /* AgentImage.swift in Sources */,
+				459AC4942325799600C43B06 /* CGImageExtensions.swift in Sources */,
 				45A72B6623236055007DE9DA /* AgentFrame.swift in Sources */,
 				45A72B5D2323602A007DE9DA /* AgentInfo.swift in Sources */,
 				45A72B7223237B29007DE9DA /* AgentState.swift in Sources */,
@@ -307,6 +312,7 @@
 				45A72B6423236047007DE9DA /* AgentBranching.swift in Sources */,
 				45FF38A0232541FA00F724B7 /* AgentViewController+AgentControllerDelegate.swift in Sources */,
 				45A72B5B23235FCB007DE9DA /* StringExtensions.swift in Sources */,
+				459AC4952325799600C43B06 /* CGImageExtensions.swift in Sources */,
 				45FF38982325240600F724B7 /* main.swift in Sources */,
 				45A72B6123236038007DE9DA /* AgentBalloon.swift in Sources */,
 				456FDA57231FB8B100170E12 /* AgentViewController.swift in Sources */,
