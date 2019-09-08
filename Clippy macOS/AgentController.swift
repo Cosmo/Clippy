@@ -83,6 +83,7 @@ class AgentController {
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+                self.agentView?.agentSprite.removeAllActions()
                 self.agentView?.agentSprite.run(SKAction.sequence(actions))
             })
         }
