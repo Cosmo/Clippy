@@ -20,7 +20,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window?.makeKeyAndOrderFront(self)
         window?.center()
         
-        setupMenu()
         setupStatusBar()
     }
     
@@ -30,19 +29,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
-    }
-    
-    func setupMenu() {
-        // Main menu
-        let mainMenu = NSMenu(title: "MainMenu")
-        let appItem = mainMenu.addItem(withTitle: "Application", action: nil, keyEquivalent: "")
-        
-        // Application menu
-        let appMenu = NSMenu(title: "Application")
-        appMenu.addItem(withTitle: "Quit \(applicationName)", action: #selector(quitAction(sender:)), keyEquivalent: "q")
-        mainMenu.setSubmenu(appMenu, for: appItem)
-        
-        NSApp.mainMenu = mainMenu
     }
     
     func setupStatusBar() {
@@ -60,7 +46,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let statusBarMenu = NSMenu(title: "Clippy")
         let agentsItem = NSMenuItem(title: "Agents", action: nil, keyEquivalent: "")
         statusBarMenu.addItem(agentsItem)
-        statusBarMenu.addItem(withTitle: "Quit", action: #selector(quitAction(sender:)), keyEquivalent: "")
+        statusBarMenu.addItem(NSMenuItem.separator())
+        statusBarMenu.addItem(withTitle: "Quit \(applicationName)", action: #selector(quitAction(sender:)), keyEquivalent: "")
         
         // Agents menu
         let agentsMenu = NSMenu(title: "Agents")
