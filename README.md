@@ -28,6 +28,7 @@ git clone https://github.com/Cosmo/Clippy.git
 * [x] Status Bar Item
 * [ ] Idle animations
 * [ ] HitTest on transparent regions
+* [ ] Original size / Zoom
 * [ ] Mute
 * [ ] Actions
   * [ ] Hide
