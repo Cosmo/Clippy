@@ -44,7 +44,7 @@ class AgentViewController: NSViewController {
         
         
         if let name = AgentCharacterDescription.randomAgentName() {
-            try? agentController.run(name: name, withInitialAnimation: false)
+            try? agentController.run(name: name, withInitialAnimation: true)
         }
     }
     
@@ -99,7 +99,7 @@ extension AgentViewController {
             agentController.animate()
         case 36: // Return
             guard let name = AgentCharacterDescription.randomAgentName() else { return }
-            try? agentController.run(name: name, withInitialAnimation: false)
+            try? agentController.run(name: name, withInitialAnimation: true)
         case 124: // Arrow Right Key
             guard let animation = agent.findAnimation("LookLeft") else { break }
             agentController.play(animation: animation)
