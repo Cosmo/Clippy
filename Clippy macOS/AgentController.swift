@@ -77,14 +77,6 @@ class AgentController {
         return image
     }
     
-//    private func drawLogoIn(_ image: NSImage, _ logo: NSImage, position: CGPoint) -> NSImage {
-//        let renderer = UIGraphicsImageRenderer(size: image.size)
-//        return renderer.image { context in
-//            image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
-//            logo.draw(in: CGRect(origin: position, size: logo.size))
-//        }
-//    }
-    
     func play(animation: AgentAnimation) {
         guard let agent = agent else { return }
         print(animation.name)
