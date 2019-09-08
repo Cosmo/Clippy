@@ -43,8 +43,8 @@ class AgentController {
     }
     
     func audioActionForFrame(frame: AgentFrame) -> SKAction? {
-        guard let agent = agent, let soundNumber = frame.soundNumber else { return nil }
-        let soundURL = agent.basePath.appendingPathComponent("sounds").appendingPathComponent("\(agent.resourceName)_\(soundNumber).mp3")
+        guard let agent = agent, let soundIndex = frame.soundIndex else { return nil }
+        let soundURL = agent.soundURL(forIndex: soundIndex)
         let action = SKAction.run {
             let playerItem = AVPlayerItem(url: soundURL)
             self.player.replaceCurrentItem(with: playerItem)

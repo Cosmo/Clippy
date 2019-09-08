@@ -19,15 +19,20 @@ struct AgentCharacterDescription {
     var animations: [AgentAnimation]
     var states: [AgentState]
     
-    var basePath: URL
+    var agentURL: URL
     var resourceName: String
+    var resourceNameWithSuffix: String
     var spriteMap: CGImage
+    let soundsURL: URL
     
-    init?(baseURL: URL) {
-        self.basePath = baseURL
-        self.resourceName = baseURL.lastPathComponent
+    init?(agentURL: URL) {
+        self.agentURL = agentURL
+        self.soundsURL = agentURL.appendingPathComponent("sounds")
+        self.resourceNameWithSuffix = agentURL.lastPathComponent
+        self.resourceName = resourceNameWithSuffix.replacingOccurrences(of: ".agent", with: "")
         
-        let fileURL = basePath.appendingPathComponent("\(resourceName).acd")
+        let fileURL = agentURL.appendingPathComponent("\(resourceName).acd")
+        let imageURL = agentURL.appendingPathComponent("\(resourceName)_sprite_map.png")
         
         guard let fileContent = try? String(contentsOf: fileURL, encoding: String.Encoding.utf8) else { return nil }
         
@@ -48,7 +53,6 @@ struct AgentCharacterDescription {
         let states = stateTexts.compactMap { AgentState.parse(content: $0) }
         
         // Sprite Map
-        let imageURL = basePath.appendingPathComponent("\(resourceName)_sprite_map.png")
         guard let image = NSImage(contentsOf: imageURL)?.cgImage(forProposedRect: nil, context: nil, hints: nil) else { return nil }
         spriteMap = image
         
@@ -63,53 +67,17 @@ struct AgentCharacterDescription {
     }
     
     init?(resourceName: String) {
-        self.init(baseURL: AgentCharacterDescription.agentsURL().appendingPathComponent(resourceName))
+        let directoryName = "\(resourceName).agent"
+        self.init(agentURL: AgentCharacterDescription.agentsURL().appendingPathComponent(directoryName))
+    }
+    
+    func soundURL(forIndex index: Int) -> URL {
+        let fileName = "\(resourceName)_\(index).mp3"
+        return soundsURL.appendingPathComponent(fileName)
     }
     
     func findAnimation(_ name: String) -> AgentAnimation? {
         return animations.first(where: { $0.name == name })
-    }
-}
-
-extension AgentCharacterDescription {
-    static func agentsURL() -> URL {
-        let fileManager = FileManager.default
-        
-        let applicationSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
-        let agentsURL = applicationSupportURL?.appendingPathComponent("Clippy/Agents", isDirectory: true)
-        
-        guard let url = agentsURL else {
-            fatalError("Cant create Agents directory")
-        }
-        
-        if !fileManager.fileExists(atPath: url.path) {
-            try? fileManager.createDirectory(at: url,
-                                             withIntermediateDirectories: true,
-                                             attributes: nil)
-        }
-        
-        return url
-    }
-    
-    static func agentNames() -> [String] {
-        var agentNames: [String] = []
-        let fileManager = FileManager.default
-        guard let items = try? fileManager.contentsOfDirectory(at: agentsURL(),
-                                                               includingPropertiesForKeys: nil,
-                                                               options: []) else {
-            return []
-        }
-        
-        for item in items {
-            if item.hasDirectoryPath {
-                agentNames.append(item.lastPathComponent)
-            }
-        }
-        return agentNames
-    }
-    
-    static func randomAgentName() -> String? {
-        agentNames().randomElement()
     }
 }
 
@@ -146,3 +114,49 @@ extension AgentCharacterDescription {
         }
     }
 }
+
+extension AgentCharacterDescription {
+    static func agentsURL() -> URL {
+        let fileManager = FileManager.default
+        
+        guard let applicationSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first else {
+            fatalError("Cant create Agents directory")
+        }
+        
+        let agentsURL = applicationSupportURL.appendingPathComponent("Clippy/Agents", isDirectory: true)
+        createAgentsDirectoriesIfNeeded(url: agentsURL)
+        
+        return agentsURL
+    }
+    
+    static func createAgentsDirectoriesIfNeeded(url: URL) {
+        let fileManager = FileManager.default
+        if !fileManager.fileExists(atPath: url.path) {
+            try? fileManager.createDirectory(at: url,
+                                             withIntermediateDirectories: true,
+                                             attributes: nil)
+        }
+    }
+    
+    static func agentNames() -> [String] {
+        var agentNames: [String] = []
+        let fileManager = FileManager.default
+        guard let items = try? fileManager.contentsOfDirectory(at: agentsURL(),
+                                                               includingPropertiesForKeys: nil,
+                                                               options: []) else {
+            return []
+        }
+        
+        for item in items {
+            if item.hasDirectoryPath && item.lastPathComponent.hasSuffix(".agent") {
+                agentNames.append(item.lastPathComponent.replacingOccurrences(of: ".agent", with: ""))
+            }
+        }
+        return agentNames.sorted()
+    }
+    
+    static func randomAgentName() -> String? {
+        agentNames().randomElement()
+    }
+}
+

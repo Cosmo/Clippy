@@ -14,7 +14,6 @@ struct AgentFrame {
     let exitBranch: Int?
     let branchings: [AgentBranching]
     
-    
     /// A set of images.
     ///
     /// A frame can be composed of multiple images.
@@ -64,7 +63,7 @@ extension AgentFrame {
 }
 
 extension AgentFrame {
-    var soundNumber: Int? {
+    var soundIndex: Int? {
         guard let soundEffect = soundEffect else { return nil }
         let cleanName = soundEffect.replacingOccurrences(of: "Audio\\", with: "").replacingOccurrences(of: ".wav", with: "")
         return Int(cleanName) ?? nil
