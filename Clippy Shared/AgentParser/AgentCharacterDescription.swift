@@ -74,9 +74,21 @@ struct AgentCharacterDescription {
 extension AgentCharacterDescription {
     static func agentsURL() -> URL {
         let fileManager = FileManager.default
-        var homeDirectory = fileManager.homeDirectoryForCurrentUser
-        homeDirectory.appendPathComponent("Agents")
-        return homeDirectory
+        
+        let applicationSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
+        let agentsURL = applicationSupportURL?.appendingPathComponent("Clippy/Agents", isDirectory: true)
+        
+        guard let url = agentsURL else {
+            fatalError("Cant create Agents directory")
+        }
+        
+        if !fileManager.fileExists(atPath: url.path) {
+            try? fileManager.createDirectory(at: url,
+                                             withIntermediateDirectories: true,
+                                             attributes: nil)
+        }
+        
+        return url
     }
     
     static func agentNames() -> [String] {
