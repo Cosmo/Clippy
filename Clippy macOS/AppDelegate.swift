@@ -57,8 +57,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var isDirectory = ObjCBool(true)
         let exists = FileManager.default.fileExists(atPath: agentsPath, isDirectory: &isDirectory)
         
-        print(exists && isDirectory.boolValue)
-        
         if exists && isDirectory.boolValue {
             if agentNames.isEmpty {
                 agentsMenu.addItem(withTitle: "No Agents found.",

@@ -18,6 +18,8 @@ class AgentController {
     var agent: AgentCharacterDescription?
     var agentView: AgentView?
     
+    var delegate: AgentControllerDelegate?
+    
     init() {
     }
     
@@ -26,12 +28,21 @@ class AgentController {
         self.agentView = agentView
     }
     
-    func run(name: String) throws {
+    func run(name: String, withInitialAnimation animated: Bool = true) throws {
         print(name)
         guard let agent = AgentCharacterDescription(resourceName: name) else { return }
+        delegate?.willRunAgent(agent: agent)
         self.agent = agent
-        guard let animation = agent.findAnimation("Greeting") else { return }
-        play(animation: animation)
+        if animated {
+            if let animation = agent.findAnimation("Greeting") {
+                play(animation: animation)
+            } else {
+                showInitialFrame()
+            }
+        } else {
+            showInitialFrame()
+        }
+        delegate?.didRunAgent(agent: agent)
     }
     
     func audioActionForFrame(frame: AgentFrame) -> SKAction? {
@@ -75,6 +86,11 @@ class AgentController {
         })
         
         return image
+    }
+    
+    func showInitialFrame() {
+        guard let agent = agent else { return }
+        self.agentView?.agentSprite.texture = SKTexture(cgImage: try! agent.textureAtIndex(index: 0))
     }
     
     func play(animation: AgentAnimation) {

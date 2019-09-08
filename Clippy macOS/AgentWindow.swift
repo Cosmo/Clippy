@@ -15,14 +15,18 @@ class AgentWindow: NSWindow {
     
     override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
         super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
-        
-        styleMask = []
         level = NSWindow.Level.floating
         canHide = true
         backingType = .buffered
         isMovable = true
         isMovableByWindowBackground = true
-        backgroundColor = .clear
+        let debug = false
+        if debug {
+            backgroundColor = .white
+            styleMask = [.titled]
+        } else {
+            backgroundColor = .clear
+        }
         
         // contentAspectRatio = CGSize(width: 1, height: 1)
         

@@ -16,6 +16,7 @@ class AgentViewController: NSViewController {
         agentView = AgentView()
         agentController = AgentController(agentView: agentView)
         super.init(nibName: nil, bundle: nil)
+        agentController.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -23,7 +24,7 @@ class AgentViewController: NSViewController {
     }
     
     override func loadView() {
-        let size = CGSize(width: 200, height: 200)
+        let size = CGSize(width: 100, height: 200)
         view = NSView(frame: CGRect(origin: CGPoint.zero, size: size))
         view.wantsLayer = true
         view.layer?.backgroundColor = .clear
@@ -40,7 +41,11 @@ class AgentViewController: NSViewController {
     override func viewDidAppear() {
         super.viewDidAppear()
         view.window?.makeFirstResponder(self)
-        try? agentController.run(name: "f1")
+        
+        
+        if let name = AgentCharacterDescription.randomAgentName() {
+            try? agentController.run(name: name, withInitialAnimation: false)
+        }
     }
     
     func setupConstraints() {
@@ -92,9 +97,9 @@ extension AgentViewController {
         switch Int(event.keyCode) {
         case 49: // Spacebar
             agentController.animate()
-        case 36: // Spacebar
+        case 36: // Return
             guard let name = AgentCharacterDescription.randomAgentName() else { return }
-            try? agentController.run(name: name)
+            try? agentController.run(name: name, withInitialAnimation: false)
         case 124: // Arrow Right Key
             guard let animation = agent.findAnimation("LookLeft") else { break }
             agentController.play(animation: animation)
