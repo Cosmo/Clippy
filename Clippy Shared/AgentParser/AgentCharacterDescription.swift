@@ -124,4 +124,13 @@ extension AgentCharacterDescription {
         let y = index / columns
         return try! textureAtPosition(x: x, y: y)
     }
+    
+    func imageForFrame(_ frame: AgentFrame) -> CGImage {
+        let cgImages = frame.images.reversed().map{ try! textureAtIndex(index: $0.imageNumber) }
+        if let mergedImage = CGImage.mergeImages(cgImages) {
+            return mergedImage
+        } else {
+            return try! textureAtIndex(index: 0)
+        }
+    }
 }

@@ -69,25 +69,16 @@ class AgentController {
         guard let agent = agent else { return }
         print(animation.name)
         
-        var actions: [SKAction] = []
-        let width = agent.character.width
-        let height = agent.character.height
-        
         DispatchQueue.global(qos: .background).async {
+            var actions: [SKAction] = []
+            
             for frame in animation.frames {
                 if soundEnabled, let audioAction = self.audioActionForFrame(frame: frame) {
                     actions.append(audioAction)
                 }
                 
-                var texture: CGImage
-                let cgImages = frame.images.reversed().map{ try! agent.textureAtIndex(index: $0.imageNumber) }
-                if let mergedImage = CGImage.mergeImages(cgImages, width: width, height: height) {
-                    texture = mergedImage
-                } else {
-                    texture = try! agent.textureAtIndex(index: 0)
-                }
-                
-                let action = SKAction.animate(with: [SKTexture(cgImage: texture)], timePerFrame: frame.durationInSeconds)
+                let textures = [SKTexture(cgImage: agent.imageForFrame(frame))]
+                let action = SKAction.animate(with: textures, timePerFrame: frame.durationInSeconds)
                 actions.append(action)
             }
             
@@ -95,6 +86,5 @@ class AgentController {
                 self.agentView?.agentSprite.run(SKAction.sequence(actions))
             })
         }
-        
     }
 }

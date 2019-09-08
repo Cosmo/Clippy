@@ -9,7 +9,11 @@
 import Foundation
 
 extension CGImage {
-    static func mergeImages(_ images: [CGImage], width: Int, height: Int) -> CGImage? {
+    static func mergeImages(_ images: [CGImage]) -> CGImage? {
+        guard let firstImage = images.first else { return nil }
+        let width = firstImage.width
+        let height = firstImage.height
+        
         var data = Data(capacity: 0)
         guard let colorSpace = CGColorSpace(name: CGColorSpace.genericRGBLinear) else { return nil }
         let image = data.withUnsafeMutableBytes({ (bytes: UnsafeMutableRawBufferPointer) -> CGImage? in
