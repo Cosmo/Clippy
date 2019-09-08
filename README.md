@@ -17,6 +17,20 @@ git clone https://github.com/Cosmo/Clippy.git
 
 * Right-Click to animate.
 
+## Todos
+
+* [x] Animations (Right-Click → Animate!)
+* [x] Sounds
+* [x] Always on top
+* [x] Transparent when out of focus
+* [x] Support for other Agents
+* [ ] Hide and show
+* [ ] Mute
+* [ ] Idle animations
+* [ ] Languages
+* [ ] Support branching and probability
+* [ ] Control via command line
+
 ## Demo
 
 ![Demo](https://github.com/Cosmo/Clippy/blob/master/Clippy.gif?raw=true)
@@ -44,12 +58,6 @@ It converts opaque BMP sprites, removes backgrounds, puts them together to one b
 
 `./convert agents/CLIPPIT clippy`
 
-
-## Todos
-
-* [x] Animations (Right-Click → Animate!)
-* [ ] Sound
-* [ ] Support for other Agents
 
 ## Attributions
 
