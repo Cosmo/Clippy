@@ -106,14 +106,9 @@ class AgentController {
                 
                 var texture: CGImage?
                 
-                if frame.images.count == 1, let image = frame.images.first {
-                    texture = try! agent.textureAtIndex(index: image.imageNumber)
-                }
-                if frame.images.count > 1 {
-                    let cgImages = frame.images.reversed().map{ try! agent.textureAtIndex(index: $0.imageNumber) }
-                    if let mergedImage = self.mergeImages(cgImages, width: width, height: height) {
-                        texture = mergedImage
-                    }
+                let cgImages = frame.images.reversed().map{ try! agent.textureAtIndex(index: $0.imageNumber) }
+                if let mergedImage = self.mergeImages(cgImages, width: width, height: height) {
+                    texture = mergedImage
                 }
                 
                 let finalTexture = texture ?? (try! agent.textureAtIndex(index: 0))
