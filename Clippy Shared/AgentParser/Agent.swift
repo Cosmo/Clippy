@@ -135,6 +135,12 @@ extension Agent {
             try? fileManager.createDirectory(at: url,
                                              withIntermediateDirectories: true,
                                              attributes: nil)
+            ["clippit", "links", "merlin"].forEach {
+                guard let agentsArchiveURL = Bundle.main.url(forResource: "\($0).agent", withExtension: "zip") else {
+                    return
+                }
+                try? fileManager.copyItem(at: agentsArchiveURL, to: url.appendingPathComponent("\($0).agent.zip"))
+            }
         }
     }
     
