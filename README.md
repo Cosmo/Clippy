@@ -2,9 +2,13 @@
 
 Yes, Clippy from Microsoft Office is back — on macOS!
 
+---
+
 Clippy can be moved around (drag with mouse) and be animated (right-click).
 
 The `SpriteKit`-Framework is used to animate through Clippy's sprite map.
+
+--- 
 
 ## First start
 
@@ -18,7 +22,7 @@ The `SpriteKit`-Framework is used to animate through Clippy's sprite map.
 
 ## Todos
 
-* [x] Animations (Right-Click → Animate!)
+* [x] Animations (Right-Click → Animate! or press the Space bar)
 * [x] Always on top
 * [x] Sounds
   * [x] Mute / Unmute
@@ -51,7 +55,7 @@ git clone https://github.com/Cosmo/Clippy.git
 ```
 
 * Open project with Xcode
-* Build and run macOS target
+* Build and run the macOS target
 
 
 ## Add other Agents (optional)
