@@ -69,10 +69,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         agentsMenu.addItem(withTitle: "Reload",
                            action: #selector(reloadAction(sender:)),
                            keyEquivalent: "")
-        agentsMenu.addItem(NSMenuItem.separator())
-        agentsMenu.addItem(withTitle: "Show in Finder",
-                           action: #selector(openFolderAction(sender:)),
-                           keyEquivalent: "")
         return agentsMenu
     }
     
@@ -87,6 +83,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarMenu.addItem(NSMenuItem.separator())
         guard let menuItem = agentsMenuItem else  { return }
         statusBarMenu.addItem(menuItem)
+        statusBarMenu.addItem(withTitle: "Show in Finder",
+                           action: #selector(openFolderAction(sender:)),
+                           keyEquivalent: "")
         statusBarMenu.addItem(NSMenuItem.separator())
         statusBarMenu.addItem(withTitle: "Quit \(applicationName)", action: #selector(quitAction(sender:)), keyEquivalent: "")
         
