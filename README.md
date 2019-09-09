@@ -112,6 +112,12 @@ Inspiration was taken from:
 
 Graphics were created by *Microsoft*.
 
+## Clippy: The Unauthorized Biography
+
+Watch the Unauthorized Biography with [Steven Sinofsky](https://twitter.com/stevesi), if you're interested in Clippy's history!
+
+[![Clippy: The Unauthorized Biography](https://img.youtube.com/vi/8bhjNvSSuLM/0.jpg)](https://www.youtube.com/watch?v=8bhjNvSSuLM)
+
 ## Contact
 
 * Devran "Cosmo" Uenal
