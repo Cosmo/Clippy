@@ -46,7 +46,7 @@ class AgentViewController: NSViewController {
         let lastUsedName = (NSApplication.shared.delegate as? AppDelegate)?.lastUsedAgent
         let name = lastUsedName ?? Agent.randomAgentName()
         if let name = name {
-            try? agentController.run(name: name)
+            try? agentController.load(name: name)
             agentController.show()
         }
     }
@@ -81,7 +81,7 @@ extension AgentViewController {
     
     @objc func chooseAssistantAction() {
         guard let name = Agent.randomAgentName() else { return }
-        try? agentController.run(name: name)
+        try? agentController.load(name: name)
     }
     
     override var acceptsFirstResponder: Bool {
@@ -102,7 +102,7 @@ extension AgentViewController {
             agentController.animate()
         case 36: // Return
             guard let name = Agent.randomAgentName() else { return }
-            try? agentController.run(name: name)
+            try? agentController.load(name: name)
             agentController.show()
         case 124: // Arrow Right Key
             guard let animation = agent.findAnimation("LookLeft") else { break }
@@ -132,11 +132,19 @@ extension AgentViewController {
         
         let menu = NSMenu(title: "Agent")
         let menuItems = [
-            NSMenuItem(title: "Hide", action: #selector(hideAction(sender:)), keyEquivalent: ""),
+            NSMenuItem(title: "Hide",
+                       action: #selector(hideAction(sender:)),
+                       keyEquivalent: ""),
             NSMenuItem.separator(),
-            NSMenuItem(title: "Options…", action: nil, keyEquivalent: ""),
-            NSMenuItem(title: "Choose Assistant…", action: #selector(chooseAssistantAction), keyEquivalent: ""),
-            NSMenuItem(title: "Animate!", action: #selector(animateAction), keyEquivalent: "")
+            NSMenuItem(title: "Options…",
+                       action: nil,
+                       keyEquivalent: ""),
+            NSMenuItem(title: "Choose Assistant…",
+                       action: #selector(chooseAssistantAction),
+                       keyEquivalent: ""),
+            NSMenuItem(title: "Animate!",
+                       action: #selector(animateAction),
+                       keyEquivalent: "")
         ]
         
         for (index, menuItem) in menuItems.enumerated() {
@@ -147,5 +155,17 @@ extension AgentViewController {
     
     @objc func hideAction(sender: AnyObject) {
         agentController.hide()
+    }
+    
+    @objc func optionsAction(sender: AnyObject) {
+        let viewController = BalloonViewController(nibName: nil, bundle: nil)
+        print(viewController)
+        let popOver = NSPopover()
+        popOver.behavior = .semitransient
+        popOver.contentSize = CGSize(width: 200, height: 300)
+        popOver.animates = true
+        popOver.contentViewController = viewController
+        let rect = self.view.frame
+        popOver.show(relativeTo: rect, of: view, preferredEdge: NSRectEdge.maxY)
     }
 }

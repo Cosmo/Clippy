@@ -52,18 +52,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             agentsMenu.addItem(withTitle: "No Agents found.",
                                action: nil,
                                keyEquivalent: "")
-        } else {
-            for agentName in agentNames {
-                agentsMenu.addItem(withTitle: agentName.capitalized, action: nil, keyEquivalent: "")
-            }
         }
-        agentsMenu.addItem(NSMenuItem.separator())
-        agentsMenu.addItem(withTitle: "Show in Finder",
-                           action: #selector(openFolderAction(sender:)),
-                           keyEquivalent: "")
+        for agentName in agentNames {
+            let item = NSMenuItem(title: agentName.capitalized,
+                                  action: #selector(selectAgent(sender:)),
+                                  keyEquivalent: "")
+            if lastUsedAgent == agentName {
+                item.state = .on
+            }
+            agentsMenu.addItem(item)
+        }
         agentsMenu.addItem(NSMenuItem.separator())
         agentsMenu.addItem(withTitle: "Reload",
                            action: #selector(reloadAction(sender:)),
+                           keyEquivalent: "")
+        agentsMenu.addItem(NSMenuItem.separator())
+        agentsMenu.addItem(withTitle: "Show in Finder",
+                           action: #selector(openFolderAction(sender:)),
                            keyEquivalent: "")
         return agentsMenu
     }
@@ -105,5 +110,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func showAction(sender: AnyObject) {
         AppDelegate.agentController?.show()
+    }
+    
+    @objc func selectAgent(sender: AnyObject) {
+        guard let menuItem = sender as? NSMenuItem else { return }
+        try? AppDelegate.agentController?.load(name: menuItem.title.lowercased())
+        agentsMenuItem?.submenu = createAgentsMenu()
     }
 }

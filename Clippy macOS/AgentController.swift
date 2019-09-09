@@ -30,13 +30,13 @@ class AgentController {
         self.agentView = agentView
     }
     
-    func run(name: String) throws {
+    func load(name: String) throws {
         print(name)
         guard let agent = Agent(resourceName: name) else { return }
-        delegate?.willRunAgent(agent: agent)
+        delegate?.willLoadAgent(agent: agent)
         self.agent = agent
         showInitialFrame()
-        delegate?.didRunAgent(agent: agent)
+        delegate?.didLoadAgent(agent: agent)
     }
     
     func audioActionForFrame(frame: AgentFrame) -> SKAction? {
@@ -49,12 +49,6 @@ class AgentController {
             self.player.volume = self.isMuted ? 0 : 1.0
         }
         return action
-    }
-    
-    func animate() {
-        guard let agent = agent else { return }
-        let animation = agent.animations.randomElement()!
-        play(animation: animation)
     }
     
     func showInitialFrame() {
@@ -81,7 +75,6 @@ class AgentController {
             
             DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
                 self.agentView?.agentSprite.removeAllActions()
-                
                 self.agentView?.agentSprite.run(SKAction.sequence(actions), completion: {
                     completion?()
                 })
@@ -89,19 +82,17 @@ class AgentController {
         }
     }
     
+    func animate() {
+        guard let agent = agent else { return }
+        let animation = agent.animations.randomElement()!
+        play(animation: animation)
+    }
+    
     func hide() {
-        if let animation = agent?.findAnimation("Hide") {
-            play(animation: animation) {
-                self.isHidden = true
-                NSApp.hide(self)
-            }
-        }
+        delegate?.handleHide()
     }
     
     func show() {
-        self.delegate?.window?.makeKeyAndOrderFront(self)
-        self.isHidden = false
-        /// No need to run animation, as it will be played
-        /// automatically, when the window loaded.
+        delegate?.handleShow()
     }
 }

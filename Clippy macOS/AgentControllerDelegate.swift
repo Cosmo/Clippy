@@ -9,8 +9,9 @@
 import Cocoa
 
 protocol AgentControllerDelegate {
-    func willRunAgent(agent: Agent)
-    func didRunAgent(agent: Agent)
+    func willLoadAgent(agent: Agent)
+    func didLoadAgent(agent: Agent)
     
-    var window: NSWindow? { get }
+    func handleHide()
+    func handleShow()
 }

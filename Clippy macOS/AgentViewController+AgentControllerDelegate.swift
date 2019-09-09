@@ -9,7 +9,7 @@
 import Cocoa
 
 extension AgentViewController: AgentControllerDelegate {
-    func willRunAgent(agent: Agent) {
+    func willLoadAgent(agent: Agent) {
         guard let oldRect = view.superview?.window?.frame else { return }
         
         var agentName = agent.resourceName
@@ -27,11 +27,23 @@ extension AgentViewController: AgentControllerDelegate {
         view.superview?.window?.setFrame(rect, display: true, animate: animated)
     }
     
-    func didRunAgent(agent: Agent) {
+    func didLoadAgent(agent: Agent) {
         (NSApplication.shared.delegate as? AppDelegate)?.lastUsedAgent = agent.resourceName
     }
     
-    var window: NSWindow? {
-        return view.superview?.window
+    func handleHide() {
+        if let animation = agentController.agent?.findAnimation("Hide") {
+            agentController.play(animation: animation) {
+                self.agentController.isHidden = true
+                NSApp.hide(self)
+            }
+        }
+    }
+    
+    func handleShow() {
+        view.superview?.window?.makeKeyAndOrderFront(self)
+        agentController.isHidden = false
+        /// No need to run animation, as it will be played
+        /// automatically, when the window loaded.
     }
 }

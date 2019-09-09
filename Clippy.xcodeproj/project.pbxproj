@@ -10,6 +10,7 @@
 		453D7F7F231F189600995AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F7E231F189600995AB3 /* AppDelegate.swift */; };
 		453D7F87231F189600995AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F85231F189600995AB3 /* LaunchScreen.storyboard */; };
 		453D7F90231F189600995AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F8F231F189600995AB3 /* AppDelegate.swift */; };
+		45491A592325D842007E04E2 /* AgentBalloonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45491A582325D842007E04E2 /* AgentBalloonViewController.swift */; };
 		456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456FDA55231FA3E900170E12 /* GhostSKView.swift */; };
 		456FDA57231FB8B100170E12 /* AgentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FC1231F90DA00995AB3 /* AgentViewController.swift */; };
 		459AC4942325799600C43B06 /* CGImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AC4932325799600C43B06 /* CGImageExtensions.swift */; };
@@ -52,6 +53,7 @@
 		453D7F8F231F189600995AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		453D7F96231F189600995AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		453D7FC1231F90DA00995AB3 /* AgentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentViewController.swift; sourceTree = "<group>"; };
+		45491A582325D842007E04E2 /* AgentBalloonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentBalloonViewController.swift; sourceTree = "<group>"; };
 		456FDA55231FA3E900170E12 /* GhostSKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostSKView.swift; sourceTree = "<group>"; };
 		459AC4932325799600C43B06 /* CGImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageExtensions.swift; sourceTree = "<group>"; };
 		45A72A6723223968007DE9DA /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				45FF389F232541FA00F724B7 /* AgentViewController+AgentControllerDelegate.swift */,
 				453D7FCB231F914800995AB3 /* Sub-Classes */,
 				453D7FC8231F912800995AB3 /* Supporting Files */,
+				45491A582325D842007E04E2 /* AgentBalloonViewController.swift */,
 			);
 			path = "Clippy macOS";
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				453D7F90231F189600995AB3 /* AppDelegate.swift in Sources */,
 				45A72A692322396B007DE9DA /* Agent.swift in Sources */,
 				45A72B6A23236064007DE9DA /* AgentAnimation.swift in Sources */,
+				45491A592325D842007E04E2 /* AgentBalloonViewController.swift in Sources */,
 				45FF38A2232542BC00F724B7 /* AgentControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
