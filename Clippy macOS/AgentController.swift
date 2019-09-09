@@ -56,7 +56,7 @@ class AgentController {
         self.agentView?.agentSprite.texture = SKTexture(cgImage: try! agent.textureAtIndex(index: 0))
     }
     
-    func play(animation: AgentAnimation, withSoundEnabled soundEnabled: Bool = true, completion: (() -> Void)? = nil) {
+    func play(animation: AgentAnimation, completion: (() -> Void)? = nil) {
         guard let agent = agent else { return }
         print(animation.name)
         
@@ -64,7 +64,7 @@ class AgentController {
             var actions: [SKAction] = []
             
             for frame in animation.frames {
-                if soundEnabled, let audioAction = self.audioActionForFrame(frame: frame) {
+                if let audioAction = self.audioActionForFrame(frame: frame) {
                     actions.append(audioAction)
                 }
                 
@@ -85,7 +85,7 @@ class AgentController {
     
     func animate() {
         guard let agent = agent else { return }
-        let animation = agent.animations.randomElement()!
+        guard let animation = agent.animations.randomElement() else { return }
         play(animation: animation)
     }
     
