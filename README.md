@@ -37,6 +37,10 @@ The `SpriteKit`-Framework is used to animate through Clippy's sprite map.
   * [ ] MoveTo x y
   * [ ] GestureAt x y
   * [x] Play animation
+* [ ] Clean up
+  * [ ] Rewrite the ugly parts (many references and force unwraps)
+  * [ ] Extract the Agent reader into its own libary
+  * [ ] Test!
 * [ ] HitTest on transparent regions
 * [ ] Support branching and probability
 * [ ] Idle animations
