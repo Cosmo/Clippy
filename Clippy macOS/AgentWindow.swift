@@ -9,10 +9,6 @@
 import Cocoa
 
 class AgentWindow: NSWindow {
-    override var canBecomeKey: Bool {
-        return true
-    }
-    
     override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
         super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
         level = NSWindow.Level.floating
@@ -28,13 +24,14 @@ class AgentWindow: NSWindow {
             backgroundColor = .clear
         }
         
-        // contentAspectRatio = CGSize(width: 1, height: 1)
-        
         /// Fixes glitches
         hasShadow = false
         isOpaque = true
         delegate = self
-        
+    }
+    
+    override var canBecomeKey: Bool {
+        return true
     }
 }
 
