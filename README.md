@@ -6,16 +6,15 @@ Clippy can be moved around (drag with mouse) and be animated (right-click).
 
 The `SpriteKit`-Framework is used to animate through Clippy's sprite map.
 
-## Usage
+## First start
 
-```sh
-git clone https://github.com/Cosmo/Clippy.git
-```
+1. Download or build from source.
+2. Run
+3. Click `📎` → `Show in Finder` in the menu bar
+4. Unzip all files
+5. Click `📎` → `Reload`
+6. Pick an Agent under `📎` → `Agents` → `…`
 
-* Open project with Xcode
-* Build and run macOS target
-
-* Right-Click to animate.
 
 ## Todos
 
@@ -26,7 +25,7 @@ git clone https://github.com/Cosmo/Clippy.git
 * [x] Transparent when out of focus
 * [x] Support for other agents
 * [x] Agent picker 
-* [x] Status Bar Item
+* [x] Menu bar Item
 * [ ] Original size / Zoom
 * [ ] Actions
   * [x] Hide
@@ -43,6 +42,16 @@ git clone https://github.com/Cosmo/Clippy.git
 ## Demo
 
 ![Demo](https://github.com/Cosmo/Clippy/blob/master/Clippy.gif?raw=true)
+
+## Build
+
+```sh
+git clone https://github.com/Cosmo/Clippy.git
+```
+
+* Open project with Xcode
+* Build and run macOS target
+
 
 ## Add other Agents (optional)
 
