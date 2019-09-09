@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 extension CGImage {
     static func mergeImages(_ images: [CGImage]) -> CGImage? {
