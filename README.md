@@ -57,10 +57,10 @@ git clone https://github.com/Cosmo/Clippy.git
 ## Add other Agents (optional)
 
 An `*.acs` file includes all required resources (bitmaps, sounds, definitions, etc.) of an agent.
-Unfortunately, this project does not support `*.acs` files, but pull-requests are welcome.
+Unfortunately, this project does not support `*.acs` files, yet. But hopefully in the future — pull-requests are welcome.
  
-Until then, you can convert `*.acs` files with the "[Lebeau Software](http://www.lebeausoftware.org/software/decompile.aspx)" by  Lebeau Software.
-This software extracts all resources, that we can convert and read.
+Until then, you can convert `*.acs` files with the "[MSAgent Decompiler](http://www.lebeausoftware.org/software/decompile.aspx)" by  Lebeau Software.
+This software extracts all resources that we need, from an `*.acs`.
 There are a few steps involved.
 
 ### Requirements
@@ -79,12 +79,12 @@ Will be used to convert `*.wav`-files in RIFF format to MP3 files.
 ### Conversion
 
 Included in this project is a converter called `agent-converter.sh`.
-This tool converts opaque BMP sprites, removes background colors, puts them together to one big transparent PNG file and converts all sounds to MP3. 
+This tool takes opaque BMP sprites, removes background colors, puts them together to one big transparent PNG file and converts all sounds to MP3. 
 
-`./agent-convert.sh AGENT_PATH NEW_NAME`
+`./agent-convert.sh PATH_TO_AGENT NEW_NAME`
 
-`AGENT_PATH` path to decompiled agent.
-`NEW_NAME` should only include lowercase letters and underscores.
+`AGENT_PATH` path to decompiled agent directory.
+`NEW_NAME` should only include lowercase letters.
 
 #### Example
 
@@ -94,6 +94,10 @@ This tool converts opaque BMP sprites, removes background colors, puts them toge
 
 After the conversion step, you will get a new folder called `NEW_NAME.agent`.
 
+1. Click `📎` → `Show in Finder` in the menu bar.
+2. Move it to the Agents directory.
+3. Click `📎` → `Reload`
+4. Select new Agent under `📎` → `Agents` → `…`
 
 ## Attributions
 
