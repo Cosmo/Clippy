@@ -13,6 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow?
     var statusItem: NSStatusItem?
     var agentsMenuItem: NSMenuItem?
+    static var agentController: AgentController?
+    var lastUsedAgent: String?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         window = AgentWindow(contentRect: CGRect.zero, styleMask: [], backing: .buffered, defer: true)
@@ -44,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func createAgentsMenu() -> NSMenu {
         let agentsMenu = NSMenu(title: "Agents")
-        let agentNames = AgentCharacterDescription.agentNames()
+        let agentNames = Agent.agentNames()
         
         if agentNames.isEmpty {
             agentsMenu.addItem(withTitle: "No Agents found.",
@@ -70,6 +72,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Status bar menu
         let statusBarMenu = NSMenu(title: "Clippy")
         agentsMenuItem = NSMenuItem(title: "Agents", action: nil, keyEquivalent: "")
+        
+        statusBarMenu.addItem(withTitle: "Hide", action: #selector(hideAction(sender:)), keyEquivalent: "")
+        statusBarMenu.addItem(withTitle: "Show", action: #selector(showAction(sender:)), keyEquivalent: "")
+        statusBarMenu.addItem(NSMenuItem.separator())
         guard let menuItem = agentsMenuItem else  { return }
         statusBarMenu.addItem(menuItem)
         statusBarMenu.addItem(NSMenuItem.separator())
@@ -90,6 +96,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func openFolderAction(sender: AnyObject) {
-        NSWorkspace.shared.open(AgentCharacterDescription.agentsURL())
+        NSWorkspace.shared.open(Agent.agentsURL())
+    }
+    
+    @objc func hideAction(sender: AnyObject) {
+        AppDelegate.agentController?.hide()
+    }
+    
+    @objc func showAction(sender: AnyObject) {
+        AppDelegate.agentController?.show()
     }
 }

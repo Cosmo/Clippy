@@ -15,6 +15,7 @@ class AgentViewController: NSViewController {
     init() {
         agentView = AgentView()
         agentController = AgentController(agentView: agentView)
+        AppDelegate.agentController = agentController
         super.init(nibName: nil, bundle: nil)
         agentController.delegate = self
     }
@@ -42,9 +43,11 @@ class AgentViewController: NSViewController {
         super.viewDidAppear()
         view.window?.makeFirstResponder(self)
         
-        
-        if let name = AgentCharacterDescription.randomAgentName() {
-            try? agentController.run(name: name, withInitialAnimation: true)
+        let lastUsedName = (NSApplication.shared.delegate as? AppDelegate)?.lastUsedAgent
+        let name = lastUsedName ?? Agent.randomAgentName()
+        if let name = name {
+            try? agentController.run(name: name)
+            agentController.show()
         }
     }
     
@@ -77,7 +80,7 @@ extension AgentViewController {
     }
     
     @objc func chooseAssistantAction() {
-        guard let name = AgentCharacterDescription.randomAgentName() else { return }
+        guard let name = Agent.randomAgentName() else { return }
         try? agentController.run(name: name)
     }
     
@@ -98,8 +101,9 @@ extension AgentViewController {
         case 49: // Spacebar
             agentController.animate()
         case 36: // Return
-            guard let name = AgentCharacterDescription.randomAgentName() else { return }
-            try? agentController.run(name: name, withInitialAnimation: true)
+            guard let name = Agent.randomAgentName() else { return }
+            try? agentController.run(name: name)
+            agentController.show()
         case 124: // Arrow Right Key
             guard let animation = agent.findAnimation("LookLeft") else { break }
             agentController.play(animation: animation)
@@ -128,7 +132,7 @@ extension AgentViewController {
         
         let menu = NSMenu(title: "Agent")
         let menuItems = [
-            NSMenuItem(title: "Hide", action: nil, keyEquivalent: ""),
+            NSMenuItem(title: "Hide", action: #selector(hideAction(sender:)), keyEquivalent: ""),
             NSMenuItem.separator(),
             NSMenuItem(title: "Options…", action: nil, keyEquivalent: ""),
             NSMenuItem(title: "Choose Assistant…", action: #selector(chooseAssistantAction), keyEquivalent: ""),
@@ -139,5 +143,9 @@ extension AgentViewController {
             menu.insertItem(menuItem, at: index)
         }
         NSMenu.popUpContextMenu(menu, with: event, for: agentView)
+    }
+    
+    @objc func hideAction(sender: AnyObject) {
+        agentController.hide()
     }
 }

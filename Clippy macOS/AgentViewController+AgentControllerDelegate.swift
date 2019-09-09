@@ -9,7 +9,7 @@
 import Cocoa
 
 extension AgentViewController: AgentControllerDelegate {
-    func willRunAgent(agent: AgentCharacterDescription) {
+    func willRunAgent(agent: Agent) {
         guard let oldRect = view.superview?.window?.frame else { return }
         
         var agentName = agent.resourceName
@@ -27,7 +27,11 @@ extension AgentViewController: AgentControllerDelegate {
         view.superview?.window?.setFrame(rect, display: true, animate: animated)
     }
     
-    func didRunAgent(agent: AgentCharacterDescription) {
-        
+    func didRunAgent(agent: Agent) {
+        (NSApplication.shared.delegate as? AppDelegate)?.lastUsedAgent = agent.resourceName
+    }
+    
+    var window: NSWindow? {
+        return view.superview?.window
     }
 }

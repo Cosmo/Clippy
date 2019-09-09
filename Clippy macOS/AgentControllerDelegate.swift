@@ -6,9 +6,11 @@
 //  Copyright © 2019 Devran. All rights reserved.
 //
 
-import Foundation
+import Cocoa
 
 protocol AgentControllerDelegate {
-    func willRunAgent(agent: AgentCharacterDescription)
-    func didRunAgent(agent: AgentCharacterDescription)
+    func willRunAgent(agent: Agent)
+    func didRunAgent(agent: Agent)
+    
+    var window: NSWindow? { get }
 }

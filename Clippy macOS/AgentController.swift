@@ -16,10 +16,11 @@ class AgentController {
         return AVPlayer()
     }()
     
-    var agent: AgentCharacterDescription?
+    var agent: Agent?
     var agentView: AgentView?
     
     var delegate: AgentControllerDelegate?
+    var isHidden = true
     
     init() {
     }
@@ -29,16 +30,12 @@ class AgentController {
         self.agentView = agentView
     }
     
-    func run(name: String, withInitialAnimation animated: Bool = true) throws {
+    func run(name: String) throws {
         print(name)
-        guard let agent = AgentCharacterDescription(resourceName: name) else { return }
+        guard let agent = Agent(resourceName: name) else { return }
         delegate?.willRunAgent(agent: agent)
         self.agent = agent
-        if animated, let animation = agent.findAnimation("Show") {
-            play(animation: animation)
-        } else {
-            showInitialFrame()
-        }
+        showInitialFrame()
         delegate?.didRunAgent(agent: agent)
     }
     
@@ -65,7 +62,7 @@ class AgentController {
         self.agentView?.agentSprite.texture = SKTexture(cgImage: try! agent.textureAtIndex(index: 0))
     }
     
-    func play(animation: AgentAnimation, withSoundEnabled soundEnabled: Bool = true) {
+    func play(animation: AgentAnimation, withSoundEnabled soundEnabled: Bool = true, completion: (() -> Void)? = nil) {
         guard let agent = agent else { return }
         print(animation.name)
         
@@ -84,8 +81,27 @@ class AgentController {
             
             DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
                 self.agentView?.agentSprite.removeAllActions()
-                self.agentView?.agentSprite.run(SKAction.sequence(actions))
+                
+                self.agentView?.agentSprite.run(SKAction.sequence(actions), completion: {
+                    completion?()
+                })
             })
         }
+    }
+    
+    func hide() {
+        if let animation = agent?.findAnimation("Hide") {
+            play(animation: animation) {
+                self.isHidden = true
+                NSApp.hide(self)
+            }
+        }
+    }
+    
+    func show() {
+        self.delegate?.window?.makeKeyAndOrderFront(self)
+        self.isHidden = false
+        /// No need to run animation, as it will be played
+        /// automatically, when the window loaded.
     }
 }

@@ -13,7 +13,7 @@ enum AgentError: Error {
     case frameOutOfBounds
 }
 
-struct AgentCharacterDescription {
+struct Agent {
     var character: AgentCharacter
     var balloon: AgentBalloon
     var animations: [AgentAnimation]
@@ -68,7 +68,7 @@ struct AgentCharacterDescription {
     
     init?(resourceName: String) {
         let directoryName = "\(resourceName).agent"
-        self.init(agentURL: AgentCharacterDescription.agentsURL().appendingPathComponent(directoryName))
+        self.init(agentURL: Agent.agentsURL().appendingPathComponent(directoryName))
     }
     
     func soundURL(forIndex index: Int) -> URL {
@@ -81,7 +81,7 @@ struct AgentCharacterDescription {
     }
 }
 
-extension AgentCharacterDescription {
+extension Agent {
     var columns: Int {
         let columns = Int(spriteMap.width) / character.width
         return columns
@@ -115,7 +115,7 @@ extension AgentCharacterDescription {
     }
 }
 
-extension AgentCharacterDescription {
+extension Agent {
     static func agentsURL() -> URL {
         let fileManager = FileManager.default
         
