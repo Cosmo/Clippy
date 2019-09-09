@@ -520,6 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = macOSAppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Z3ZG8RPGHF;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Clippy macOS/Info.plist";
@@ -528,6 +529,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devranuenal.Clippy;
 				PRODUCT_NAME = Clippy;
 				SDKROOT = macosx;
@@ -541,6 +543,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = macOSAppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = Z3ZG8RPGHF;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Clippy macOS/Info.plist";
@@ -549,6 +552,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devranuenal.Clippy;
 				PRODUCT_NAME = Clippy;
 				SDKROOT = macosx;
