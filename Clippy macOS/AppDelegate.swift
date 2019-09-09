@@ -114,10 +114,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func selectAgent(sender: AnyObject) {
         guard let menuItem = sender as? NSMenuItem else { return }
-        try? AppDelegate.agentController?.load(name: menuItem.title.lowercased())
-        agentsMenuItem?.submenu = createAgentsMenu()
-        if let animation = AppDelegate.agentController?.agent?.findAnimation("Show") {
-            AppDelegate.agentController?.play(animation: animation)
+        let name = menuItem.title.lowercased()
+        
+        if let isVisible = window?.isVisible, isVisible == true {
+            try? AppDelegate.agentController?.load(name: name)
+            if let animation = AppDelegate.agentController?.agent?.findAnimation("Show") {
+                AppDelegate.agentController?.play(animation: animation)
+            }
+        } else {
+            lastUsedAgent = name
+            window?.makeKeyAndOrderFront(self)
         }
+        
+        agentsMenuItem?.submenu = createAgentsMenu()
     }
 }
