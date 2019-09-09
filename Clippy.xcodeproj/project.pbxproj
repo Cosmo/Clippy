@@ -11,6 +11,9 @@
 		453D7F87231F189600995AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453D7F85231F189600995AB3 /* LaunchScreen.storyboard */; };
 		453D7F90231F189600995AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7F8F231F189600995AB3 /* AppDelegate.swift */; };
 		45491A592325D842007E04E2 /* AgentBalloonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45491A582325D842007E04E2 /* AgentBalloonViewController.swift */; };
+		45491A652325E8CA007E04E2 /* clippit.agent.zip in Resources */ = {isa = PBXBuildFile; fileRef = 45491A622325E8CA007E04E2 /* clippit.agent.zip */; };
+		45491A662325E8CA007E04E2 /* merlin.agent.zip in Resources */ = {isa = PBXBuildFile; fileRef = 45491A632325E8CA007E04E2 /* merlin.agent.zip */; };
+		45491A672325E8CA007E04E2 /* links.agent.zip in Resources */ = {isa = PBXBuildFile; fileRef = 45491A642325E8CA007E04E2 /* links.agent.zip */; };
 		456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456FDA55231FA3E900170E12 /* GhostSKView.swift */; };
 		456FDA57231FB8B100170E12 /* AgentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FC1231F90DA00995AB3 /* AgentViewController.swift */; };
 		459AC4942325799600C43B06 /* CGImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AC4932325799600C43B06 /* CGImageExtensions.swift */; };
@@ -54,6 +57,9 @@
 		453D7F96231F189600995AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		453D7FC1231F90DA00995AB3 /* AgentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentViewController.swift; sourceTree = "<group>"; };
 		45491A582325D842007E04E2 /* AgentBalloonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentBalloonViewController.swift; sourceTree = "<group>"; };
+		45491A622325E8CA007E04E2 /* clippit.agent.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = clippit.agent.zip; sourceTree = "<group>"; };
+		45491A632325E8CA007E04E2 /* merlin.agent.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = merlin.agent.zip; sourceTree = "<group>"; };
+		45491A642325E8CA007E04E2 /* links.agent.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = links.agent.zip; sourceTree = "<group>"; };
 		456FDA55231FA3E900170E12 /* GhostSKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostSKView.swift; sourceTree = "<group>"; };
 		459AC4932325799600C43B06 /* CGImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageExtensions.swift; sourceTree = "<group>"; };
 		45A72A6723223968007DE9DA /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
@@ -165,6 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				45FF389B23253CAB00F724B7 /* Assets.xcassets */,
+				45491A622325E8CA007E04E2 /* clippit.agent.zip */,
+				45491A642325E8CA007E04E2 /* links.agent.zip */,
+				45491A632325E8CA007E04E2 /* merlin.agent.zip */,
 				453D7F96231F189600995AB3 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -283,7 +292,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45491A652325E8CA007E04E2 /* clippit.agent.zip in Resources */,
 				45FF389C23253CAB00F724B7 /* Assets.xcassets in Resources */,
+				45491A672325E8CA007E04E2 /* links.agent.zip in Resources */,
+				45491A662325E8CA007E04E2 /* merlin.agent.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
