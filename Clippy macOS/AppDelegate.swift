@@ -78,8 +78,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let statusBarMenu = NSMenu(title: "Clippy")
         agentsMenuItem = NSMenuItem(title: "Agents", action: nil, keyEquivalent: "")
         
-        statusBarMenu.addItem(withTitle: "Hide", action: #selector(hideAction(sender:)), keyEquivalent: "")
         statusBarMenu.addItem(withTitle: "Show", action: #selector(showAction(sender:)), keyEquivalent: "")
+        statusBarMenu.addItem(withTitle: "Hide", action: #selector(hideAction(sender:)), keyEquivalent: "")
         statusBarMenu.addItem(NSMenuItem.separator())
         guard let menuItem = agentsMenuItem else  { return }
         statusBarMenu.addItem(menuItem)
@@ -109,12 +109,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func showAction(sender: AnyObject) {
-        AppDelegate.agentController?.show()
+        window?.makeKeyAndOrderFront(self)
     }
     
     @objc func selectAgent(sender: AnyObject) {
         guard let menuItem = sender as? NSMenuItem else { return }
         try? AppDelegate.agentController?.load(name: menuItem.title.lowercased())
         agentsMenuItem?.submenu = createAgentsMenu()
+        if let animation = AppDelegate.agentController?.agent?.findAnimation("Show") {
+            AppDelegate.agentController?.play(animation: animation)
+        }
     }
 }

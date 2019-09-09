@@ -43,7 +43,8 @@ extension AgentViewController: AgentControllerDelegate {
     func handleShow() {
         view.superview?.window?.makeKeyAndOrderFront(self)
         agentController.isHidden = false
-        /// No need to run animation, as it will be played
-        /// automatically, when the window loaded.
+        if let animation = agentController.agent?.findAnimation("Show") {
+            agentController.play(animation: animation)
+        }
     }
 }
