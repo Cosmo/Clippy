@@ -20,26 +20,24 @@ git clone https://github.com/Cosmo/Clippy.git
 ## Todos
 
 * [x] Animations (Right-Click → Animate!)
-* [x] Sounds
-  * [ ] Mute / Unmute
 * [x] Always on top
+* [x] Sounds
+  * [x] Mute / Unmute
 * [x] Transparent when out of focus
 * [x] Support for other agents
 * [x] Agent picker 
 * [x] Status Bar Item
-* [ ] Idle animations
-* [ ] HitTest on transparent regions
 * [ ] Original size / Zoom
-* [ ] Mute
 * [ ] Actions
   * [x] Hide
   * [x] Show
   * [ ] MoveTo x y
   * [ ] GestureAt x y
   * [x] Play animation
+* [ ] HitTest on transparent regions
+* [ ] Support branching and probability
 * [ ] Idle animations
 * [ ] Languages
-* [ ] Support branching and probability
 * [ ] Control via command line
 
 ## Demo

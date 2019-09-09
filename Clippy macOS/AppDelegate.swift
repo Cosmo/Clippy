@@ -83,6 +83,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         statusBarMenu.addItem(withTitle: "Show", action: #selector(showAction(sender:)), keyEquivalent: "")
         statusBarMenu.addItem(withTitle: "Hide", action: #selector(hideAction(sender:)), keyEquivalent: "")
+        statusBarMenu.addItem(withTitle: "Mute", action: #selector(toggleMuteAction(sender:)), keyEquivalent: "")
         statusBarMenu.addItem(NSMenuItem.separator())
         guard let menuItem = agentsMenuItem else  { return }
         statusBarMenu.addItem(menuItem)
@@ -113,6 +114,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func showAction(sender: AnyObject) {
         window?.makeKeyAndOrderFront(self)
+    }
+    
+    @objc func toggleMuteAction(sender: AnyObject) {
+        guard let menuItem = sender as? NSMenuItem else { return }
+        guard let isMuted = AppDelegate.agentController?.isMuted else { return }
+        let newValue = !isMuted
+        AppDelegate.agentController?.isMuted = newValue
+        menuItem.state = newValue ? .on : .off
     }
     
     @objc func selectAgent(sender: AnyObject) {
