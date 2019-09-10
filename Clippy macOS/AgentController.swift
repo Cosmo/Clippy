@@ -68,7 +68,8 @@ class AgentController {
                     actions.append(audioAction)
                 }
                 
-                let texture = SKTexture(cgImage: agent.imageForFrame(frame))
+                guard let cgImage = try? agent.imageForFrame(frame) else { continue }
+                let texture = SKTexture(cgImage: cgImage)
                 texture.filteringMode = .nearest
                 let action = SKAction.animate(with: [texture], timePerFrame: frame.durationInSeconds)
                 actions.append(action)

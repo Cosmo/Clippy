@@ -11,6 +11,7 @@ import SpriteKit
 
 enum AgentError: Error {
     case frameOutOfBounds
+    case invalidFrameForCrop
 }
 
 struct Agent {
@@ -53,7 +54,7 @@ struct Agent {
         let states = stateTexts.compactMap { AgentState.parse(content: $0) }
         
         // Sprite Map
-        guard let image = NSImage(contentsOf: imageURL)?.cgImage(forProposedRect: nil, context: nil, hints: nil) else { return nil }
+        guard let image = Agent.cgImage(contentsOf: imageURL) else { return nil }
         spriteMap = image
         
         if let character = character, let balloon = balloon {
@@ -64,6 +65,16 @@ struct Agent {
         } else {
             return nil
         }
+    }
+    
+    static func cgImage(contentsOf contents: URL) -> CGImage? {
+        #if os(OSX)
+        return NSImage(contentsOf: contents)?.cgImage(forProposedRect: nil, context: nil, hints: nil)
+        #elseif os(iOS)
+        return try? UIImage(data: Data(contentsOf: contents))?.cgImage
+        #else
+        return nil
+        #endif
     }
     
     init?(resourceName: String) {
@@ -96,21 +107,24 @@ extension Agent {
         let textureWidth = character.width
         let textureHeight = character.height
         let rect = CGRect(x: x * textureWidth, y: y * textureHeight, width: textureWidth, height: textureHeight)
-        return spriteMap.cropping(to: rect)!
+        guard let croppedImage = spriteMap.cropping(to: rect) else {
+            throw AgentError.invalidFrameForCrop
+        }
+        return croppedImage
     }
     
     func textureAtIndex(index: Int) throws -> CGImage {
         let x = index % columns
         let y = index / columns
-        return try! textureAtPosition(x: x, y: y)
+        return try textureAtPosition(x: x, y: y)
     }
     
-    func imageForFrame(_ frame: AgentFrame) -> CGImage {
-        let cgImages = frame.images.reversed().map{ try! textureAtIndex(index: $0.imageNumber) }
+    func imageForFrame(_ frame: AgentFrame) throws -> CGImage {
+        let cgImages = try frame.images.reversed().map{ try textureAtIndex(index: $0.imageNumber) }
         if let mergedImage = CGImage.mergeImages(cgImages) {
             return mergedImage
         } else {
-            return try! textureAtIndex(index: 0)
+            return try textureAtIndex(index: 0)
         }
     }
 }
