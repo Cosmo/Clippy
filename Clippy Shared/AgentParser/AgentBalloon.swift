@@ -18,8 +18,12 @@ struct AgentBalloon {
     let borderColor: String
 }
 
-extension AgentBalloon {
-    static func parse(content: String) -> AgentBalloon? {
+extension AgentBalloon: Extractable {
+    static var scope: ParseScope {
+        return ("DefineBalloon", "EndBalloon")
+    }
+    
+    static func parse(content: String) -> Extractable? {
         var numberOfLines: Int?
         var charactersPerLine: Int?
         var fontName: String?

@@ -13,8 +13,12 @@ struct AgentState {
     let animationNames: [String]
 }
 
-extension AgentState {
-    static func parse(content: String) -> AgentState? {
+extension AgentState: Extractable {
+    static var scope: ParseScope {
+        return ("DefineState", "EndState")
+    }
+    
+    static func parse(content: String) -> Extractable? {
         var name: String?
         var animationNames: [String] = []
         content.enumerateLines(invoking: { (line: String, stop: inout Bool) in

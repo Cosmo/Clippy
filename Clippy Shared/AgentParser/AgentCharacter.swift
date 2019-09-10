@@ -19,8 +19,12 @@ struct AgentCharacter {
     let colorTable: String
 }
 
-extension AgentCharacter {
-    static func parse(content: String) -> AgentCharacter? {
+extension AgentCharacter: Extractable {
+    static var scope: ParseScope {
+        return ("DefineCharacter", "EndCharacter")
+    }
+    
+    static func parse(content: String) -> Extractable? {
         let infoTexts = content.fetchInclusive("DefineInfo", until: "EndInfo")
         let infos = infoTexts.compactMap { AgentInfo.parse(content: $0) }
         var guid: String?

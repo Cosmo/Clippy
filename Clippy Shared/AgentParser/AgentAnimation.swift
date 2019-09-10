@@ -14,8 +14,12 @@ struct AgentAnimation {
     let frames: [AgentFrame]
 }
 
-extension AgentAnimation {
-    static func parse(content: String) -> AgentAnimation? {
+extension AgentAnimation: Extractable {
+    static var scope: ParseScope {
+        return ("DefineAnimation", "EndAnimation")
+    }
+    
+    static func parse(content: String) -> Extractable? {
         var animationName: String?
         var transitionType: Int?
         let frameTexts = content.fetchInclusive("DefineFrame", until: "EndFrame")

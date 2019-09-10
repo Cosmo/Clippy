@@ -37,31 +37,21 @@ struct Agent {
         
         guard let fileContent = try? String(contentsOf: fileURL, encoding: String.Encoding.utf8) else { return nil }
         
-        // Character
-        guard let characterText = fileContent.fetchInclusive("DefineCharacter", until: "EndCharacter").first else { return nil }
-        let character = AgentCharacter.parse(content: characterText)
+        let character = AgentCharacter.extractSingle(content: fileContent)
+        let balloon = AgentBalloon.extractSingle(content: fileContent)
         
-        // Balloon
-        guard let balloonText = fileContent.fetchInclusive("DefineBalloon", until: "EndBalloon").first else { return nil }
-        let balloon = AgentBalloon.parse(content: balloonText)
-        
-        // Animations
-        let animationTexts = fileContent.fetchInclusive("DefineAnimation", until: "EndAnimation")
-        let animations = animationTexts.compactMap { AgentAnimation.parse(content: $0) }
-        
-        // States
-        let stateTexts = fileContent.fetchInclusive("DefineState", until: "EndState")
-        let states = stateTexts.compactMap { AgentState.parse(content: $0) }
+        let animations = AgentAnimation.extractMany(content: fileContent)
+        let states = AgentState.extractMany(content: fileContent)
         
         // Sprite Map
         guard let image = Agent.cgImage(contentsOf: imageURL) else { return nil }
         spriteMap = image
         
-        if let character = character, let balloon = balloon {
+        if let character = character as? AgentCharacter, let balloon = balloon as? AgentBalloon {
             self.character = character
             self.balloon = balloon
-            self.animations = animations
-            self.states = states
+            self.animations = (animations as? [AgentAnimation]) ?? []
+            self.states = (states as? [AgentState]) ?? []
         } else {
             return nil
         }
