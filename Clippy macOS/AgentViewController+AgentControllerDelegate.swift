@@ -18,7 +18,8 @@ extension AgentViewController: AgentControllerDelegate {
         }
         
         view.superview?.window?.title = agentName
-        let newSize = CGSize(width: agent.character.width * 2, height: agent.character.height * 2)
+        let zoomFactor = 1
+        let newSize = CGSize(width: agent.character.width * zoomFactor, height: agent.character.height * zoomFactor)
         let rect = CGRect(origin: oldRect.origin, size: newSize)
         
         /// Disable animation, when the window was not moved before.

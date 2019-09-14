@@ -11,6 +11,7 @@ import AppKit
 class AgentViewController: NSViewController {
     var agentController: AgentController
     var agentView: AgentView
+    var isZoomed: Bool = true
     
     init() {
         agentView = AgentView()
@@ -63,6 +64,11 @@ class AgentViewController: NSViewController {
         let options: NSTrackingArea.Options = [.mouseEnteredAndExited, .inVisibleRect, .activeAlways]
         let trackingArea = NSTrackingArea(rect: view.frame, options: options, owner: self, userInfo: nil)
         view.addTrackingArea(trackingArea)
+    }
+    
+    func setZoomed(zoomed: Bool) {
+        isZoomed = zoomed
+        
     }
 }
 
@@ -157,12 +163,10 @@ extension AgentViewController {
         agentController.hide()
     }
     
-    @objc func optionsAction(sender: AnyObject) {
-        let viewController = BalloonViewController(nibName: nil, bundle: nil)
-        print(viewController)
+    @objc func openBalloonAction(sender: AnyObject) {
+        let viewController = BalloonViewController(titleValue: "Hey this is Clippy!", descriptionValue: "Nice, eh?")
         let popOver = NSPopover()
         popOver.behavior = .semitransient
-        popOver.contentSize = CGSize(width: 200, height: 300)
         popOver.animates = true
         popOver.contentViewController = viewController
         let rect = self.view.frame

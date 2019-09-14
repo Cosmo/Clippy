@@ -17,14 +17,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var lastUsedAgent: String?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
         window = AgentWindow(contentRect: CGRect.zero, styleMask: [], backing: .buffered, defer: true)
         window?.title = applicationName
         window?.contentViewController = AgentViewController()
         if !Agent.agentNames().isEmpty {
             window?.makeKeyAndOrderFront(self)
         }
-        window?.center()
+        // window?.center()
         
         setupStatusBar()
     }
@@ -41,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let statusBar = NSStatusBar.system
         statusItem = statusBar.statusItem(withLength: NSStatusItem.squareLength)
         if let button = statusItem?.button {
-            button.title = "📎"
+            button.image = NSImage(named: "StatusItem")
         }
         
         setupStatusBarMenu()
