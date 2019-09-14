@@ -9,6 +9,7 @@
 import Cocoa
 import AVKit
 import SpriteKit
+import SpriteMap
 
 class AgentController {
     var isMuted = false
@@ -53,7 +54,9 @@ class AgentController {
     
     func showInitialFrame() {
         guard let agent = agent else { return }
-        self.agentView?.agentSprite.texture = SKTexture(cgImage: try! agent.textureAtIndex(index: 0))
+        if let image = agent.spriteMap.imageAt(index: 0, size: CGSize(width: agent.character.width, height: agent.character.height)) {
+            self.agentView?.agentSprite.texture = SKTexture(cgImage: image)
+        }
     }
     
     func play(animation: AgentAnimation, completion: (() -> Void)? = nil) {
@@ -68,7 +71,7 @@ class AgentController {
                     actions.append(audioAction)
                 }
                 
-                guard let cgImage = try? agent.imageForFrame(frame) else { continue }
+                guard let cgImage = agent.imageForFrame(frame) else { continue }
                 let texture = SKTexture(cgImage: cgImage)
                 texture.filteringMode = .nearest
                 let action = SKAction.animate(with: [texture], timePerFrame: frame.durationInSeconds)

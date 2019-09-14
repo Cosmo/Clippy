@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,8 +20,6 @@
 		45491A672325E8CA007E04E2 /* links.agent.zip in Resources */ = {isa = PBXBuildFile; fileRef = 45491A642325E8CA007E04E2 /* links.agent.zip */; };
 		456FDA56231FA3E900170E12 /* GhostSKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456FDA55231FA3E900170E12 /* GhostSKView.swift */; };
 		456FDA57231FB8B100170E12 /* AgentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D7FC1231F90DA00995AB3 /* AgentViewController.swift */; };
-		459AC4942325799600C43B06 /* CGImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AC4932325799600C43B06 /* CGImageExtensions.swift */; };
-		459AC4952325799600C43B06 /* CGImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AC4932325799600C43B06 /* CGImageExtensions.swift */; };
 		45A72A692322396B007DE9DA /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72A6723223968007DE9DA /* Agent.swift */; };
 		45A72B5A23235FCB007DE9DA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B5923235FCB007DE9DA /* StringExtensions.swift */; };
 		45A72B5B23235FCB007DE9DA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B5923235FCB007DE9DA /* StringExtensions.swift */; };
@@ -41,6 +39,7 @@
 		45A72B70232366C9007DE9DA /* AgentImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B6E232366C9007DE9DA /* AgentImage.swift */; };
 		45A72B7223237B29007DE9DA /* AgentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B7123237B29007DE9DA /* AgentState.swift */; };
 		45A72B7323237B29007DE9DA /* AgentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A72B7123237B29007DE9DA /* AgentState.swift */; };
+		45F9E1B2232CE12900430AD1 /* SpriteMap in Frameworks */ = {isa = PBXBuildFile; productRef = 45F9E1B1232CE12900430AD1 /* SpriteMap */; };
 		45FF387F23242BA500F724B7 /* AgentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF387E23242BA500F724B7 /* AgentView.swift */; };
 		45FF38812324327800F724B7 /* AgentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF38802324327800F724B7 /* AgentController.swift */; };
 		45FF388323243E0400F724B7 /* AgentWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF388223243E0400F724B7 /* AgentWindow.swift */; };
@@ -65,7 +64,6 @@
 		45491A632325E8CA007E04E2 /* merlin.agent.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = merlin.agent.zip; sourceTree = "<group>"; };
 		45491A642325E8CA007E04E2 /* links.agent.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = links.agent.zip; sourceTree = "<group>"; };
 		456FDA55231FA3E900170E12 /* GhostSKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostSKView.swift; sourceTree = "<group>"; };
-		459AC4932325799600C43B06 /* CGImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageExtensions.swift; sourceTree = "<group>"; };
 		45A72A6723223968007DE9DA /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		45A72A6A232257DB007DE9DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		45A72B5923235FCB007DE9DA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -99,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45F9E1B2232CE12900430AD1 /* SpriteMap in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				45A72A6623223959007DE9DA /* AgentParser */,
-				459AC4932325799600C43B06 /* CGImageExtensions.swift */,
 				450AEAED232A4D7500EB1297 /* macOS */,
 			);
 			path = "Clippy Shared";
@@ -250,6 +248,9 @@
 			dependencies = (
 			);
 			name = "Clippy macOS";
+			packageProductDependencies = (
+				45F9E1B1232CE12900430AD1 /* SpriteMap */,
+			);
 			productName = "Clippy macOS";
 			productReference = 453D7F8D231F189600995AB3 /* Clippy.app */;
 			productType = "com.apple.product-type.application";
@@ -281,6 +282,9 @@
 				Base,
 			);
 			mainGroup = 453D7F6D231F189400995AB3;
+			packageReferences = (
+				45F9E1B0232CE12900430AD1 /* XCRemoteSwiftPackageReference "SpriteMap" */,
+			);
 			productRefGroup = 453D7F7C231F189600995AB3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -324,7 +328,6 @@
 				45A72B6C23236076007DE9DA /* AgentCharacter.swift in Sources */,
 				453D7F7F231F189600995AB3 /* AppDelegate.swift in Sources */,
 				45A72B6F232366C9007DE9DA /* AgentImage.swift in Sources */,
-				459AC4942325799600C43B06 /* CGImageExtensions.swift in Sources */,
 				45A72B6623236055007DE9DA /* AgentFrame.swift in Sources */,
 				45A72B5D2323602A007DE9DA /* AgentInfo.swift in Sources */,
 				45A72B7223237B29007DE9DA /* AgentState.swift in Sources */,
@@ -342,7 +345,6 @@
 				45A72B6423236047007DE9DA /* AgentBranching.swift in Sources */,
 				45FF38A0232541FA00F724B7 /* AgentViewController+AgentControllerDelegate.swift in Sources */,
 				45A72B5B23235FCB007DE9DA /* StringExtensions.swift in Sources */,
-				459AC4952325799600C43B06 /* CGImageExtensions.swift in Sources */,
 				450AEAEE232A672900EB1297 /* AgentControllerDelegate.swift in Sources */,
 				45FF38982325240600F724B7 /* main.swift in Sources */,
 				45A72B6123236038007DE9DA /* AgentBalloon.swift in Sources */,
@@ -607,6 +609,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		45F9E1B0232CE12900430AD1 /* XCRemoteSwiftPackageReference "SpriteMap" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Cosmo/SpriteMap.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		45F9E1B1232CE12900430AD1 /* SpriteMap */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45F9E1B0232CE12900430AD1 /* XCRemoteSwiftPackageReference "SpriteMap" */;
+			productName = SpriteMap;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 453D7F6E231F189400995AB3 /* Project object */;
 }

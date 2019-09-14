@@ -83,39 +83,13 @@ struct Agent {
 }
 
 extension Agent {
-    var columns: Int {
-        let columns = Int(spriteMap.width) / character.width
-        return columns
-    }
-    var rows: Int {
-        let rows = Int(spriteMap.height) / character.height
-        return rows
-    }
-    
-    func textureAtPosition(x: Int, y: Int) throws -> CGImage {
-        guard (0...rows ~= y && 0...columns ~= x) else { throw AgentError.frameOutOfBounds }
-        let textureWidth = character.width
-        let textureHeight = character.height
-        let rect = CGRect(x: x * textureWidth, y: y * textureHeight, width: textureWidth, height: textureHeight)
-        guard let croppedImage = spriteMap.cropping(to: rect) else {
-            throw AgentError.invalidFrameForCrop
+    func imageForFrame(_ frame: AgentFrame) -> CGImage? {
+        var imageIndices = frame.images.reversed().compactMap{ $0.imageNumber }
+        if imageIndices.isEmpty {
+            imageIndices = [0]
         }
-        return croppedImage
-    }
-    
-    func textureAtIndex(index: Int) throws -> CGImage {
-        let x = index % columns
-        let y = index / columns
-        return try textureAtPosition(x: x, y: y)
-    }
-    
-    func imageForFrame(_ frame: AgentFrame) throws -> CGImage {
-        let cgImages = try frame.images.reversed().map{ try textureAtIndex(index: $0.imageNumber) }
-        if let mergedImage = CGImage.mergeImages(cgImages) {
-            return mergedImage
-        } else {
-            return try textureAtIndex(index: 0)
-        }
+        let cgImages = imageIndices.compactMap{ spriteMap.imageAt(index: $0, size: CGSize(width: character.width, height: character.height)) }
+        return CGImage.mergeImages(cgImages)
     }
 }
 
