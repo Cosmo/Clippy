@@ -11,8 +11,7 @@ import AppKit
 class AgentViewController: NSViewController {
     var agentController: AgentController
     var agentView: AgentView
-    var isZoomed: Bool = true
-    
+    var idleTimer:Timer!
     init() {
         agentView = AgentView()
         agentController = AgentController(agentView: agentView)
@@ -37,8 +36,24 @@ class AgentViewController: NSViewController {
         view.addSubview(agentView)
         setupConstraints()
         setupTrackingArea()
+        startTimer()
     }
     
+    func startTimer(){
+        idleTimer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(AgentViewController.animateIdlely), userInfo: nil, repeats: true)
+    }
+    
+    func resetTimer(){
+        idleTimer.invalidate()
+        startTimer()
+    }
+    
+    @objc func animateIdlely()
+    {
+        if agentController.isIdleAnimationEnabled {
+            agentController.animate()
+        }
+    }
     
     override func viewDidAppear() {
         super.viewDidAppear()
@@ -130,6 +145,7 @@ extension AgentViewController {
     override func mouseDown(with event: NSEvent) {
         if event.clickCount == 2 {
             agentController.animate()
+            resetTimer()
         }
     }
     
