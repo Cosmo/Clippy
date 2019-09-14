@@ -11,7 +11,10 @@ import AppKit
 class AgentViewController: NSViewController {
     var agentController: AgentController
     var agentView: AgentView
+    var isZoomed: Bool = true
     var idleTimer:Timer!
+    
+    
     init() {
         agentView = AgentView()
         agentController = AgentController(agentView: agentView)
