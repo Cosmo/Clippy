@@ -12,6 +12,7 @@ import SpriteKit
 
 class AgentController {
     var isMuted = false
+    var isIdleAnimationEnabled = true
     var player: AVPlayer = {
         return AVPlayer()
     }()

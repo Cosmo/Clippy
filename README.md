@@ -43,7 +43,7 @@ The `SpriteKit`-Framework is used to animate through Clippy's sprite map.
   * [ ] Test!
 * [ ] HitTest on transparent regions
 * [ ] Support branching and probability
-* [ ] Idle animations
+* [x] Idle animations
 * [ ] Languages
 * [ ] Control via command line
 
