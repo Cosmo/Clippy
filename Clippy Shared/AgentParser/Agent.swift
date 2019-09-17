@@ -140,7 +140,7 @@ extension Agent {
     }
     
     static func randomAgentName() -> String? {
-        agentNames().randomElement()
+        return agentNames().randomElement()
     }
 }
 

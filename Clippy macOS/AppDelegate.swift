@@ -79,6 +79,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarMenu.addItem(withTitle: "Show", action: #selector(showAction(sender:)), keyEquivalent: "")
         statusBarMenu.addItem(withTitle: "Hide", action: #selector(hideAction(sender:)), keyEquivalent: "")
         statusBarMenu.addItem(withTitle: "Mute", action: #selector(toggleMuteAction(sender:)), keyEquivalent: "")
+        
+        statusBarMenu.addItem(withTitle: "Idle Animations", action: #selector(toggleIdelAnimation(sender:)), keyEquivalent: "").state = .on
+        
         statusBarMenu.addItem(NSMenuItem.separator())
         guard let menuItem = agentsMenuItem else  { return }
         statusBarMenu.addItem(menuItem)
@@ -119,6 +122,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         guard let isMuted = AppDelegate.agentController?.isMuted else { return }
         let newValue = !isMuted
         AppDelegate.agentController?.isMuted = newValue
+        menuItem.state = newValue ? .on : .off
+    }
+    
+    @objc func toggleIdelAnimation(sender: AnyObject) {
+        guard let menuItem = sender as? NSMenuItem else { return }
+        guard let isIdle = AppDelegate.agentController?.isIdleAnimationEnabled  else { return }
+        
+        let newValue = !isIdle
+        AppDelegate.agentController?.isIdleAnimationEnabled = newValue
         menuItem.state = newValue ? .on : .off
     }
     
